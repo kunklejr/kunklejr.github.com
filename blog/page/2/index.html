@@ -1,0 +1,922 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Jeff Kunkle's Blog</title>
+  <meta name="author" content="Jeff Kunkle">
+
+  
+  <meta name="description" content="System Metrics is a new Rails 3 Engine providing a clean web interface to the performance metrics instrumented with ActiveSupport::Notifications. It &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kunkle.org/blog/page/2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jeff Kunkle's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37321329-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jeff Kunkle's Blog</a></h1>
+  
+    <h2>a blog about software and related stuff</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kunkle.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/talks">Talks</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/08/22/rails-3-performance-monitoring/">Rails 3 Performance Monitoring With System Metrics</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-22T09:42:18-04:00" pubdate data-updated="true">Aug 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>System Metrics is a new Rails 3 Engine providing a clean web interface to the performance metrics instrumented with <code>ActiveSupport::Notifications</code>. It will collect and display the notifications baked into Rails and any additional custom ones you add using <code>ActiveSupport::Notification#instrument</code>.</p>
+
+<p>System Metrics is not intended to be a replacement for performance monitoring solutions such as New Relic. However, it is especially handy for quickly identifying performance problems in a development environment. It&#8217;s also a great alternative for private networks disconnected from the Internet.</p>
+
+<p>You can find more information about System Metrics on the <a href="http://nearinfinity.github.com/system-metrics">System Metrics site</a>. Please kick the tires and let us know what you think.</p>
+
+<p><img src="/assets/smdetails.png" alt="System Metrics Detail View" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/05/13/are-you-really-done/">Are You Really Done?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-13T21:19:22-04:00" pubdate data-updated="true">May 13<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>People often have a hard time determining if they&#8217;re done with a
+software development task. It&#8217;s a great idea to sit down with your team
+and together decide what you&#8217;re going to consider as criteria for
+declaring a task done. If you haven&#8217;t done that yet, here&#8217;s one
+question you can ask yourself to help decide if you&#8217;re done.</p>
+
+<blockquote><p>Is there any reason I&#8217;ll need to think about this code again in the
+near future?</p></blockquote>
+
+<p>If you didn&#8217;t quite implement all the unit tests you think you should
+have, the answer is yes and <strong>you&#8217;re not done</strong>. If you cut a corner or
+two to squeeze it in before the end of the iteration, the answer is yes
+and <strong>you&#8217;re not done</strong>. If you&#8217;re uncomfortable with the implementation
+and would like to refactor it, the answer is yes and <strong>you&#8217;re not done</strong>.
+If there are a few details on the UI you left out in the interest of
+time, the answer is yes and <strong>you&#8217;re not done</strong>.</p>
+
+<p>Too many times I&#8217;ve seen people close out a task only to revisit it the
+next week to polish up some loose ends, write a few more tests,
+refactor a confusing piece, etc. Don&#8217;t do it.</p>
+
+<p>Software development is hard enough without having to keep mental notes of
+all the needed tweaks and adjustments to things you&#8217;ve already <em>done</em>.
+Your goal should be to knock out a task so totally and completely that
+you can get it out of your brain and focus on the next one. Doing so
+will do wonders for your sense of accomplishment.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/02/07/ruby-default-arguments-and-nil/">Ruby Default Arguments and Nil</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-07T09:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p> Ruby&#8217;s default arguments are a really handy language feature that I recently discovered aren&#8217;t as handy as I once thought. I was trying to track down an error I was getting in the following snippet of code in my ActiveRecord model object:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">as_json</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+</span><span class='line'>  <span class="n">options</span><span class="o">[</span><span class="ss">:methods</span><span class="o">]</span> <span class="o">||=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="n">options</span><span class="o">[</span><span class="ss">:methods</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="ss">:full_name</span>
+</span><span class='line'>  <span class="k">super</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When this method was executed in order to convert the object into a JSON representation, I received this error (with line numbers adjusted for this example):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='console'><span class='line'><span class="go">NoMethodError: undefined method &#39;[]&#39; for nil:NilClass</span>
+</span><span class='line'><span class="go">  from MyModel:2:in &#39;as_json&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I stared at this for a while until it dawned on me that explicitly passing &#8216;nil&#8217; to as_json might not result in options being set to the default empty hash, and indeed it does not. I suppose it&#8217;s technically correct, since nil is an instance of NilClass in Ruby and not some special value as it is in many other languages. It&#8217;s just not what I was expecting and not what I want. For all the books, blog posts, and tutorials I&#8217;ve read, you&#8217;d think I would have picked up on this somewhere along the way.</p>
+
+<p>Curiously though, can anyone think of a valid use case for not assigning the default value to a nil argument? I&#8217;m sure there are some, but they&#8217;re not coming to mind.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/14/lessons-learned-building-an-ht/">Lessons Learned Building an HTTPS Everywhere Safari Extension Clone</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-14T08:31:55-05:00" pubdate data-updated="true">Dec 14<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ever since hearing about <a href="http://codebutler.com/firesheep">Firesheep</a> I&#8217;ve wanted a Safari extension similar to the <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a> extension for Firefox. Frankly, I was puzzled that one didn&#8217;t already exist, so I set out to write it. The result is <a href="http://www.nearinfinity.com/home/opensource/ssl-everywhere.html">SSL Everywhere</a>. The journey is this blog post.</p>
+
+<p>I started the project as an effort to protect myself and others from Firesheep when using Safari on an open public wireless network, much like those found in coffee shops, hotels, and airports everywhere. Firesheep works by <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Session_hijacking">hijacking your session</a>, which is basically a way of stealing your active login without needing your username or password.</p>
+
+<p>My goal with SSL Everywhere was to protect someone from a session hijacking attack by ensuring all requests to the originating website were tunneled through SSL. This seemed trivial until I thought about the various kinds of requests that would need to be secured.</p>
+
+<ul>
+<li>the original HTML page</li>
+<li>images</li>
+<li>external JavaScript files</li>
+<li>external CSS files</li>
+<li>inline frames (iframes)</li>
+<li>object or embed tags for things like videos or applets</li>
+<li>Ajax requests</li>
+<li>requests for the favicon</li>
+</ul>
+
+
+<p>It wasn&#8217;t until I started to tackle each of the list items that I realized just how limited Safari&#8217;s extension API is, and ultimately that <strong>one could never build a foolproof extension to protect Safari users from session hijacking attacks</strong>.</p>
+
+<h1>Lessons Learned</h1>
+
+<p>If you&#8217;ve spent any significant time writing Safari extensions, you may already be aware of the many restrictions and challenges I wrestled with for hours. Much of what I learned was trial and error, despite <a href="http://developer.apple.com/library/safari/#documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html">well written documentation from Apple</a>. While the documentation does a fair job of describing many of the things you can do with an extension, it doesn&#8217;t provide as much detail on what you <em>can&#8217;t</em> do. That&#8217;s what you&#8217;ll find below.</p>
+
+<h2>No Access to Raw Cookies</h2>
+
+<p>The key to avoiding a session hijacking attempt is making sure the attacker can&#8217;t access the session cookie, or cookies, your browser sends on each request. This can obviously be done by making sure all requests take place over an SSL connection. Unfortunately, you can&#8217;t guarantee this won&#8217;t happen since Safari extensions have no opportunity to intercept webpage requests before they occur. A user could easily type http://twitter.com into their address bar and SSL Everywhere couldn&#8217;t stop the request.</p>
+
+<p>The other option I pursued was having SSL Everywhere attempt to mark session cookies as secure since the browser will not send cookies marked as secure over a non-SSL connection. However, a Safari extension has no additional ability to manipulate cookies than normal JavaScript running on a page, meaning there is no way to read a cookie&#8217;s path or expiration date for example. So, there&#8217;s no way for the SSL Everywhere extension to simply mark a cookie as secure without having to guess at, or omit, other cookie information which may be important to the operation of the website.</p>
+
+<h2>No beforeload for favicons, Ajax Calls, or Stylesheet References</h2>
+
+<p>Apple was responsible for adding the beforeload event to Webkit. This gives scripts (and extensions) the ability to decide whether an external resource should be loaded or not. As stated in the Safari Extensions Development Guide,</p>
+
+<blockquote><p>Safari 5.0 and later (and other Webkit-based browsers) generates a &#8220;beforeload&#8221; event before loading each sub-resource belonging to a webpage. The &#8220;beforeload&#8221; event is generated before loading every script, iframe, image, or style sheet specified in the webpage, for example.</p></blockquote>
+
+<p>I was thrilled after reading those two sentences because it was exactly what I needed. That is, until I discovered there&#8217;s no beforeload event fired when the browser requests a website&#8217;s favicon, makes an Ajax request, or loads an image reference defined in a stylesheet. This leaves a loophole where I can&#8217;t stop a non-secure favicon reference, Ajax call, or CSS image reference from exposing the session cookies I can&#8217;t properly mark as secure.</p>
+
+<h2>src Attribute Can Not be Changed in beforeload Event Handlers</h2>
+
+<p>I ultimately wanted to have a beforeload event listener that would</p>
+
+<ol>
+<li>inspect the source URL being requested</li>
+<li>rewrite the source URL to a secure https: version if necessary</li>
+<li>replace the resource&#8217;s insecure reference with the secure https: URL</li>
+<li>allow the loading of the resource to proceed with the new, secure URL</li>
+</ol>
+
+
+<p>Following the above procedure results in the resource being requested with the SSL-secured URL as desired, but will not stop the original load with the original, insecure, URL. You just end up making two requests for the same resource; one over SSL, the other not. Again, another point of exposure for the cookies.</p>
+
+<h2>beforeload != before request</h2>
+
+<p>It turns out that all the effort described above to leverage the beforeload event was futile. Preventing a resource from loading, as described in Apple&#8217;s example of <a href="http://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/MessagesandProxies/MessagesandProxies.html#//apple_ref/doc/uid/TP40009977-CH14-SW9">blocking unwanted content</a>, stops it from being inserted into the DOM, but does not prevent it from being requested by the browser anyway.</p>
+
+<p>Apple&#8217;s example documentation states</p>
+
+<blockquote><p>If your script responds to a &#8220;beforeload&#8221; event by calling event.preventDefault(), the pending sub-resource is not loaded. This is a useful technique for blocking ads&#8230;</p></blockquote>
+
+<p>Should I have really expected that &#8220;the pending sub-resource is not loaded&#8221; doesn&#8217;t imply that it&#8217;s not requested? Perhaps I wasn&#8217;t sharp enough to catch that nuance, but once again the cookies are exposed.</p>
+
+<h2>Host Page Prototypes Can Not be Changed</h2>
+
+<p>When I discovered the beforeload event doesn&#8217;t fire on Ajax requests, I decided to try to override the XMLHttpRequest <code>open</code> method and rewrite any insecure URLs to a secure version before yielding to the original <code>open</code> implementation. What I found was that you can&#8217;t modify the prototypes of the page your start or end scripts are being injected into.</p>
+
+<p>I suspect this has something to do with start and end scripts being secluded in their own separate, and randomly named, namespace. Changing around object prototypes never resulted in any errors, it just didn&#8217;t change the prototypes of the host page and therefore couldn&#8217;t change the XMLHttpRequest object. Again, another point of exposure for the precious cookies.</p>
+
+<h1>Status of SSL Everywhere</h1>
+
+<p>If you&#8217;ve read this far it should be obvious that SSL Everywhere cannot guarantee protection against session hijacking attacks, including those from Firesheep. However, it does enhance security by automatically redirecting you to secure versions of many websites and rewriting insecure links to their SSL-encrypted equivalents. If you must use Safari to access popular websites when connected to an open WiFi network, you&#8217;re probably better off doing it with SSL Everywhere.</p>
+
+<p>We don&#8217;t offer a pre-built version of the extension for easy installation into Safari because we don&#8217;t want people to casually install it and forget that it&#8217;s not completely secure for all sites. If people find it valuable nonetheless, then we may consider creating the extension bundle in the future.</p>
+
+<h1>Try It!</h1>
+
+<p>If you&#8217;d like to try SSL Everywhere you can find the <a href="https://github.com/nearinfinity/ssl-everywhere.safariextension">source code on Github</a>. It&#8217;s open source software licensed under the GPL version 2 license, primarily because it borrows code from <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a>. If you can come up with solutions to any of the problems I encountered, please let me know!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/07/environment-specific-default-a/">Environment Specific Default Attachment Options for Paperclip</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-07T09:09:34-05:00" pubdate data-updated="true">Dec 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://github.com/thoughtbot/paperclip">Paperclip</a> is a popular Ruby file attachment solution for ActiveRecord. Following some basic setup, you can specify an attachment to an ActiveRecord model by calling the has_attached_file class method as shown in the example below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Photo</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">has_attached_file</span> <span class="ss">:image</span><span class="p">,</span>
+</span><span class='line'>    <span class="ss">:styles</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:medium</span> <span class="o">=&gt;</span> <span class="s1">&#39;350x350&gt;&#39;</span><span class="p">,</span> <span class="ss">:thumb</span> <span class="o">=&gt;</span> <span class="s1">&#39;100x100#&#39;</span> <span class="p">},</span>
+</span><span class='line'>    <span class="ss">:url</span>    <span class="o">=&gt;</span> <span class="s1">&#39;:class/:id/:style.:extension&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="ss">:path</span>   <span class="o">=&gt;</span> <span class="s1">&#39;:rails_root/assets/:class/:id_partition/:style.:extension&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I love how easy it is to specify an attachment, but I don&#8217;t like having to specify the :url and :path on all attachments for two reasons:</p>
+
+<ol>
+<li>It&#8217;s not <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>. With the <a href="https://github.com/thoughtbot/paperclip/wiki/Interpolations">Paperclip interpolations</a> I&#8217;m using, the :url and :path are never going to change within an environment no matter how many attachments I have across all my models.</li>
+<li>Between environments I do need to change the path. In development I keep the attachments in :rails_root/assets but in production I want them somewhere else.</li>
+</ol>
+
+
+<p>Fortunately, changing the Paperclip attachment defaults per environment is really easy. In your environment config files, do something like the following.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># development.rb (or use environment.rb to setup defaults for all)</span>
+</span><span class='line'><span class="no">Paperclip</span><span class="o">::</span><span class="no">Attachment</span><span class="o">.</span><span class="n">default_options</span><span class="o">[</span><span class="ss">:url</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;:class/:id/:style.:extension&#39;</span>
+</span><span class='line'><span class="no">Paperclip</span><span class="o">::</span><span class="no">Attachment</span><span class="o">.</span><span class="n">default_options</span><span class="o">[</span><span class="ss">:path</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;:rails_root/assets/:class/:id_partition/:style.:extension&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># production.rb</span>
+</span><span class='line'><span class="no">Paperclip</span><span class="o">::</span><span class="no">Attachment</span><span class="o">.</span><span class="n">default_options</span><span class="o">[</span><span class="ss">:url</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;:class/:id/:style.:extension&#39;</span>
+</span><span class='line'><span class="no">Paperclip</span><span class="o">::</span><span class="no">Attachment</span><span class="o">.</span><span class="n">default_options</span><span class="o">[</span><span class="ss">:path</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;/usr/local/assets/:class/:id_partition/:style.:extension&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Adding those defaults in your environment configuration files means you can keep your models DRY and free of any ugly code used to change options depending on the environment. Isn&#8217;t this nicer?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Photo</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">has_attached_file</span> <span class="ss">:image</span><span class="p">,</span>
+</span><span class='line'>    <span class="ss">:styles</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:medium</span> <span class="o">=&gt;</span> <span class="s1">&#39;350x350&gt;&#39;</span><span class="p">,</span> <span class="ss">:thumb</span> <span class="o">=&gt;</span> <span class="s1">&#39;100x100#&#39;</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/11/15/conferences-are-not-for-learni/">Conferences Are Not for Learning</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-15T09:45:50-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p> Near Infinity has the <a href="http://www.nearinfinity.com/home/currentopenings.html" title="Awesome Training Program">most generous training program</a> I&#8217;ve heard of among our competitors, and certainly rivals the best in the industry. Colleagues occasionally ask me for opinions about a conference or training course they&#8217;re considering. My stock answer for such inquiries has always been to &#8220;attend a good training class for depth of understanding on a narrow topic and pick a conference for more broad but shallower knowledge of many areas.&#8221; I think the training course advice is still accurate, but I was wrong about conferences.</p>
+
+<p>The best conferences aren&#8217;t about learning at all. They&#8217;re about inspiration. I finally realized this at RailsConf last week, despite having attended dozens of conferences during the past ten years. Surprisingly, I found most of the topics rather boring, most of the presenters unpolished, and most of the presentations poorly constructed and minimally rehearsed. The things I enjoyed most were the keynotes from Dave Thomas and David Heinemeier Hansson, a performance-related presentation by Aaron Patterson, an entrepreneurial story by Tom Preston-Werner, and a reflection talk by Keavy McMinn on her journey from artist to programmer. Why did I enjoy them? Because they caused me to look at things differently, forced me to think critically about my choices, and motivated me to act. Only one of these was technical in nature by the way, just one!</p>
+
+<p>A good conference should inspire you to do something. No talk is long enough to teach you anything immediately useful. The best you can hope for is exposure to lots of stuff you might want to look into after the conference. Of course you could get the same level of exposure by reading the conference agenda, Googling each topic, and reading through some documentation on each homepage. What you can&#8217;t get is the inspiration from a great speaker, motivational story, or engaged community.</p>
+
+<p>So the next time you contemplate attending a conference, do your best to judge the inspiration potential. After all, if you&#8217;re not going to do anything different after the conference, why bother going?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/11/01/is-system-refactoring-possible/">Is System Refactoring Possible?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-01T11:16:50-04:00" pubdate data-updated="true">Nov 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>People have talked about it for years. Even if you&#8217;re new, you&#8217;ve certainly been on the receiving end of more war stories than you care to remember; it&#8217;s that old legacy system. You know, the one that started out small but now has all kinds functionality tacked on here or growing out of there. Corporate architects most certainly call this growth subsystems but you know better. It&#8217;s really just the junk that&#8217;s built up over time because the <em>system</em> was never refactored.</p>
+
+<p>It&#8217;s widely accepted that refactoring is a best practice for keeping code simple, DRY, and maintainable. What doesn&#8217;t seem so widely accepted is the habit of applying the same practices at a broader system level.</p>
+
+<p>Why don&#8217;t we refactor systems? I started thinking about this very question during a recent all-day system design presentation, one of several in a series mind you. As I ingested slide after slide of barely visible text accompanied by Visio diagrams packed with boxes and arrows pointing in every direction, I wondered how things became so complicated.</p>
+
+<p>In my experience, there seems to be some kind of stigma around reworking (aka refactoring) interconnected systems. New features are always bolted on to our existing systems, but nothing is ever redesigned, reorganized, or re-anything&#8217;ed. Over time, we end up with bolts on top of bolts until the thought of reworking any part of the system is completely overwhelming.</p>
+
+<p>So why is the concept of refactoring an interconnected system so foreign when it&#8217;s been used so successfully for more discrete pieces of software? Is it possible?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/11/18/protect-your-rails-model-objec/">Protect Your Rails Model Objects With Grant</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-18T14:00:00-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Near Infinity recently announced the release of <a href="http://github.com/nearinfinity/grant">Grant</a>, a Ruby on Rails plugin for securing and auditing access to your Rails model objects, and I&#8217;m here to tell you a little bit about it. There are two primary pieces of Grant, model security and model audit. I&#8217;ll be focusing on model security for this post and will address model audit in a later entry.</p>
+
+<p>Grant&#8217;s model security is deliberately designed to force the developer to make conscious security decisions about what CRUD operations a user should be allowed to perform on your model objects. It doesn&#8217;t care how you choose to authenticate and authorize your users to perform a CRUD operation, it only cares that you actually do it.</p>
+
+<p>Rather than specify which operations are restricted, Grant restricts all CRUD operations unless they&#8217;re explicitly granted to the user. It also restricts adding or removing items from <em>has_many</em> and <em>has_and_belongs_to_many</em> associations. Only allowing operations explicitly granted forces you to make conscious security decisions. While it obviously can&#8217;t ensure you make the correct decisions, it should help ease the latent fear that you&#8217;ve inadvertently forgotten to secure something.</p>
+
+<p>Enough talk, let me show you an example of how you might use it. To enable model security you simply include the Grant::ModelSecurity module in your model class. In this example you see three grant statements. The first grants find (aka read) permission to everyone. The second example grants create, update, and destroy permission when the passed block evaluates to true, which in this case happens when the model is editable by the current user. You can put any code you want in that block as long as it returns a boolean value. Similarly, the third grant statement permits additions and removals from the tags association when it&#8217;s block evaluates to true. A Grant::ModelSecurityError is raised if any grant block evaluates to false or nil.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">EditablePage</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">Grant</span><span class="o">::</span><span class="no">ModelSecurity</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:tags</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">grant</span><span class="p">(</span><span class="ss">:find</span><span class="p">)</span> <span class="p">{</span> <span class="kp">true</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">grant</span><span class="p">(</span><span class="ss">:create</span><span class="p">,</span> <span class="ss">:update</span><span class="p">,</span> <span class="ss">:destroy</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="p">,</span> <span class="n">model</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">model</span><span class="o">.</span><span class="n">editable_by_user?</span> <span class="n">user</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">grant</span><span class="p">(</span><span class="ss">:add</span> <span class="o">=&gt;</span> <span class="ss">:tags</span><span class="p">,</span> <span class="ss">:remove</span> <span class="o">=&gt;</span> <span class="ss">:tags</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">associated_model</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">model</span><span class="o">.</span><span class="n">editable_by_user?</span> <span class="n">user</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">editable_by_user?</span> <span class="n">user</span>
+</span><span class='line'>    <span class="n">user</span><span class="o">.</span><span class="n">administrator?</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There&#8217;s a lot more to the grant statement than shown in the above example. For instance, you can have multiple grant statements for the same action. Ultimate permission to perform the action will not be granted unless all grant blocks evaluate to true.</p>
+
+<p>As you can see, Grant is pretty simple to use, but it&#8217;s not going to do the dirty work for you. It&#8217;s up to you to make the proper security decisions. Grant&#8217;s just there to make sure you don&#8217;t forget.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/14/groovys-safe-navigation-operat/">Groovy&#8217;s Safe Navigation Operator Not as Safe as I Thought</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-14T06:50:00-04:00" pubdate data-updated="true">Apr 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The safe navigation operator is almost certainly my favorite operator in Groovy. It allows you to guard against <code>NullPointerException</code>(s) much more cleanly than defining a nasty if/else mess. Consider the following example.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="kd">class</span> <span class="nc">Book</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">String</span> <span class="n">title</span>
+</span><span class='line'>  <span class="n">Author</span> <span class="n">author</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">class</span> <span class="nc">Author</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">String</span> <span class="n">firstName</span>
+</span><span class='line'>  <span class="n">String</span> <span class="n">lastName</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">def</span> <span class="n">author</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Author</span><span class="o">(</span><span class="nl">firstName:</span><span class="s1">&#39;Jason&#39;</span><span class="o">)</span>
+</span><span class='line'><span class="kt">def</span> <span class="n">book</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Book</span><span class="o">(</span><span class="nl">title:</span><span class="s1">&#39;Say no to NPEs&#39;</span><span class="o">,</span> <span class="nl">author:</span><span class="n">author</span><span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">println</span> <span class="n">book</span><span class="o">.</span><span class="na">author</span><span class="o">?.</span><span class="na">lastName</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Did you see that <code>?.</code> operator on the last line of the code sample? That&#8217;s the safe navigation operator, and it&#8217;s the equivalent of writing the following if statement (although it&#8217;s much more readable).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="k">if</span> <span class="o">(</span><span class="n">book</span><span class="o">.</span><span class="na">author</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">println</span> <span class="n">book</span><span class="o">.</span><span class="na">author</span><span class="o">.</span><span class="na">lastName</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The safe navigation operator essentially checks to see if the object you&#8217;re about to invoke a method on is <code>null</code>. If it is <code>null</code>, it simply skips the method invocation and returns <code>null</code>. If it isn&#8217;t <code>null</code>, it proceeds as usual. It works for method chaining too, so if you&#8217;re worried about <code>book</code> being <code>null</code>, you could write</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">println</span> <span class="n">book</span><span class="o">?.</span><span class="na">author</span><span class="o">?.</span><span class="na">lastName</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This way, if either <code>book</code> or <code>author</code> are <code>null</code>, you simply print out <code>null</code> instead of causing a NullPointerException.</p>
+
+<p>Since learning about the safe navigation operator, I&#8217;ve used it successfully in dozens of classes without any problem. Until last week. Consider the following line of code .</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">println</span> <span class="n">book</span><span class="o">?.</span><span class="na">author</span><span class="o">?.</span><span class="na">firstName</span><span class="o">?.</span><span class="na">trim</span><span class="o">().</span><span class="na">concat</span><span class="o">(</span><span class="s2">&quot; is great.&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thanks to the safe navigation operator we can write this concatenation of <code>firstName</code> and a sentence fragment without worrying about <code>NullPointerException</code>(s) and ugly if blocks. Or so I thought.</p>
+
+<p>Looking at this line of code, I thought for sure I was safe from any sneaky <code>NullPointerException</code>. If <code>book</code>, <code>author</code> or <code>firstName</code> are <code>null</code> I&#8217;ll simply end up printing <code>null</code> and not have to worry about the <code>concat()</code> method. After all, if the <code>trim()</code> method succeeds, there&#8217;s no sense in guarding it&#8217;s result for <code>null</code>. And that&#8217;s where I was wrong.</p>
+
+<p>I naively assumed the method chain would stop once the safe navigation operator encountered a <code>null</code> when in fact it does not. While the <code>trim()</code> method is safe from being called on a <code>null</code> <code>firstName</code> object, it will return <code>null</code>, upon which the <code>concat()</code> method is called. Oops!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/24/use-dns-search-domains-for-sho/">Use DNS Search Domains for Shorter URLs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-24T20:01:37-05:00" pubdate data-updated="true">Jan 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While I was reading through some Apple documentation on Bonjour I stumbled across a discussion on link-local addressing and DNS search domains. While the details of link-local addressing aren&#8217;t that important here, the discussion on DNS search domains triggered a little light bulb in my brain.</p>
+
+<p>You see, DNS search domains are used as a guide to help your computer lookup an IP address when something simple like &#8220;blogs&#8221; is typed into your browser&#8217;s URL. If you setup a DNS search domain of &#8220;nearinfinity.com&#8221;, typing &#8220;blogs&#8221; will force your computer to first check if there&#8217;s an address for &#8220;blogs.nearinfinity.com&#8221;. If not it falls back to its default behavior.</p>
+
+<p>If you&#8217;re a person that spends a lot of time on a small number of websites, you could use DNS search domains to your advantage to make navigating to those sites a snap. For instance, I just setup &#8220;nearinfinity.com&#8221; as an entry in my DNS search domains on my Mac. Simply go to the network preferences pane, click the advanced button at the bottom left, and then the DNS tab on the resulting popup.</p>
+
+<p><img src="/assets/dns_search_domains_osx.jpg" title="DNS Search Domain" alt="dnssearch" /></p>
+
+<p>So now, whenever I type &#8220;blogs&#8221; in my URL I get &#8220;blogs.nearinfinity.com&#8221;. Whenever I type &#8220;support&#8221; I get &#8220;support.nearinfinity.com&#8221;. I think you probably get the idea. I know I&#8217;m no genius for discovering this since it&#8217;s precisely the reason for having search domains. I just never thought to use them before.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/14/tech-presentation-tip-3-mirror-displays/">Tech Presentation Tip 3 - Mirror Displays</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/06/tech-presentation-tip-2-no-apologies-or-caveats/">Tech Presentation Tip 2 - No Apologies or Caveats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/26/tech-presentation-tip-1-avoid-screen-resolution-shock/">Tech Presentation Tip 1 - Avoid Screen Resolution Shock</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/12/introducing-db-meta-for-nodejs/">Introducing db-meta for NodeJS</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/kunklejr">@kunklejr</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kunklejr',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kunklejr", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kunklejr" class="twitter-follow-button" data-show-count="false">Follow @kunklejr</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/kunklejr?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jeff Kunkle -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'jkunkle-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

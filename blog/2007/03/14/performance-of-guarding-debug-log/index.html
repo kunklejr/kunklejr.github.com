@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Performance of Guarding Debug Log Statements - Jeff Kunkle's Blog</title>
+  <meta name="author" content="Jeff Kunkle">
+
+  
+  <meta name="description" content="A few days ago, some people in the office were debating the value of our time honored tradition of guarding debug log statements. If you&#8217;re not &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kunkle.org/blog/2007/03/14/performance-of-guarding-debug-log/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jeff Kunkle's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37321329-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jeff Kunkle's Blog</a></h1>
+  
+    <h2>a blog about software and related stuff</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kunkle.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/talks">Talks</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Performance of Guarding Debug Log Statements</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-03-14T20:37:14-04:00" pubdate data-updated="true">Mar 14<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A few days ago, some people in the office were debating the value of our time honored tradition of guarding debug log statements. If you&#8217;re not sure what I&#8217;m talking about, a short code sample should clear things up quickly.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">if</span> <span class="o">(</span><span class="n">log</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">log</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&quot;Log message number &quot;</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>It&#8217;s generally accepted that guarding your log statements with an if block will improve performance if your log statements involve some kind of string concatenation, such as the example above. But what kind of performance improvement are we really talking about here?</p>
+
+<p>To determine the impact of this log guarding, I wrote a simple program that repeatedly calls log statements with three different logging implementations. See <a href="/assets/logguard.zip">attachment</a> for the actual code.</p>
+
+<ol>
+<li>UnguardedLogger.java has no if block guarding the log statement at all.</li>
+<li>IfGuardedLogger.java has the traditional if block surrounding the log statement, just like the example above.</li>
+<li>AspectGuardedLogger.java acts just like the UnguardedLogger except that it has an AspectJ aspect guarding it&#8217;s log statement. The idea here was to allow you to abandoned typing the if block guard while still enjoying its benefits.</li>
+</ol>
+
+<p>All three implementations were asked to log one million statements in three successive batches. Each log statement included a string concatenation of six components. Each batch ran the three implementations in a different order. The results of the test run are shown below.</p>
+
+<table border="1" cellpadding="5">
+<thead style="background-color: silver">
+  <tr><th>Implementation</th><th>Test 1</th><th>Test 2</th><th>Test 3</th></tr>
+</thead>
+<tbody>
+  <tr><td>UnguardedLogger</td><td>1341ms</td><td>1783ms</td><td>1345ms</td></tr>
+  <tr><td>IfGuardedLogger</td><td>35ms</td><td>32ms</td><td>30ms</td></tr>
+  <tr><td>AspectGuardedLogger</td><td>1343ms</td><td>1612ms</td><td>1364ms</td></tr>
+</tbody>
+</table>
+
+<p>Broken down by average time per log statement, that&#8217;s</p>
+
+<ul>
+<li>UnguardedLogger - 1.49µs/statement</li>
+<li>IfGuardedLogger - 0.03µs/statement</li>
+<li>AspectGuardedLogger - 1.44µs/statement</li>
+</ul>
+
+<p>From these numbers, I&#8217;ve drawn two conclusions</p>
+
+<ol>
+<li>Guarding your log statements is a lot faster (in this case, 50x faster) than not guarding them at all or guarding them using an aspect. Even so, we&#8217;re still down in the microsecond range here. If you&#8217;re doing a lot of logging, you may notice a small improvement from guarding your log statements. Otherwise, you may not want to bother.</li>
+<li>Guarding your log statements with an around aspect is really no better than not guarding them at all. I&#8217;m not familiar with the internals of AspectJ, but my hunch is that even an around aspect will have to do the log statement string concatenation so that it could potentially be exposed as context for an advice. Hence, it ends up being about the same as not guarding the log statements at all.</li>
+</ol> 
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jeff Kunkle</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-03-14T20:37:14-04:00" pubdate data-updated="true">Mar 14<span>th</span>, 2007</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/blog/2007/03/14/performance-of-guarding-debug-log/" data-via="kunklejr" data-counturl="http://kunkle.org/blog/2007/03/14/performance-of-guarding-debug-log/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2006/11/29/start-with-something-new/" title="Previous Post: Start with Something New">&laquo; Start with Something New</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/03/24/logging-into-mac-os-x/" title="Next Post: Logging into Mac OS X Hidden Administrator Accounts">Logging into Mac OS X Hidden Administrator Accounts &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/14/tech-presentation-tip-3-mirror-displays/">Tech Presentation Tip 3 - Mirror Displays</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/06/tech-presentation-tip-2-no-apologies-or-caveats/">Tech Presentation Tip 2 - No Apologies or Caveats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/26/tech-presentation-tip-1-avoid-screen-resolution-shock/">Tech Presentation Tip 1 - Avoid Screen Resolution Shock</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/12/introducing-db-meta-for-nodejs/">Introducing db-meta for NodeJS</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kunklejr">@kunklejr</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kunklejr',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kunklejr", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kunklejr" class="twitter-follow-button" data-show-count="false">Follow @kunklejr</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/kunklejr?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jeff Kunkle -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

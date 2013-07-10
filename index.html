@@ -9,9 +9,7 @@
   <meta name="author" content="Jeff Kunkle">
 
   
-  <meta name="description" content="Automated testing is a critically important practice at Near Infinity.
-We try to automate every test we can and run them all the time as part
-of a &hellip;">
+  <meta name="description" content="Over the last few years I&#8217;ve found myself creating and accepting an increasing number of Github pull requests. During that time I&#8217;ve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +78,76 @@ of a &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/10/pull-request-etiquette/">Pull Request Etiquette</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over the last few years I&#8217;ve found myself creating and accepting an increasing number of <a href="https://help.github.com/articles/using-pull-requests">Github pull requests</a>. During that time I&#8217;ve formed some helpful opinions on what makes a good pull request that may also be useful for you to consider. Much of what makes a successful pull request boils down to</p>
+
+<ol>
+<li>doing as much of the work for the author as possible</li>
+<li>instilling author confidence in the contribution</li>
+</ol>
+
+
+<p>The overarching goal in the back of your mind should be doing whatever you can to facilitate the quick acceptance of your pull request. While I list four specific practices on what promotes a good pull request below, keeping this goal in mind will likely reveal many more. After all, you didn&#8217;t spend all that time fixing/editing/enhancing someone else&#8217;s project for it not to be accepted, did you?</p>
+
+<h1>1. Include Tests</h1>
+
+<p>One of the quickest ways to slow down acceptance of your pull request is to omit tests for your changes. This doesn&#8217;t just mean adding tests to cover your changes, but also editing existing ones or deleting tests rendered obsolete by your work. Project authors are busy people, especially if the the project is popular or one of many they&#8217;re maintaining. While pull requests are always appreciated, leaving the testing and verification of your changes to the author is likely to move you down the acceptance queue. It certainly does for my projects.</p>
+
+<p>Also, consider that the author may not be an expert in every aspect of the project. Successful, long-running projects often accumulate features from a variety of external contributors to fix edge cases, support niche features, etc. The author is unlikely to be fully knowledgeable about the intricacies of every contribution, so please help him or her out by including tests that provide some confidence in the quality and thoroughness of your work.</p>
+
+<h1>2. Keep Changes Small</h1>
+
+<p>When I see a pull request with many changed files scattered over dozens of commits, my first thought is &#8220;this is going to take a while; better hold off until I have more time.&#8221; Unfortunately, that extra time doesn&#8217;t come often enough and the pull request ends up sitting unmerged for much longer than I&#8217;d like. If possible, it&#8217;s better to break your contribution up into multiple, smaller, independent pull requests. For contributions where that&#8217;s not possible and larger changes are required, consider these two options:</p>
+
+<ol>
+<li>Provide a lengthy explanation of the work in your pull request summary. Be sure to describe the changes thoroughly enough for the author to dig into the code with an idea of what he or she should expect to see.</li>
+<li>Create an issue for the project as a way to open a discussion of the proposed changes before submitting any pull requests. This gives the author an opportunity to better understand the contribution and provide feedback. It also ensures a speedier acceptance when you finally do submit the pull request.</li>
+</ol>
+
+
+<h1>3. Stick to Existing Conventions</h1>
+
+<p>Nearly everyone has strong opinions on code format and conventions, but when you&#8217;re submitting a pull request you need to stick with the existing conventions of the project. If the JavaScript in the existing project omits semicolons at the end of the line then you should omit them too, no matter how fervently you feel they should be included. Again, this gets back to doing everything you can to facilitate the quick acceptance of your pull request. It&#8217;s very frustrating for an author to get a great contribution that they&#8217;ll need to tediously comb through to reformat. It also gives the impression of a lazy or uncompromising contributor, which penalizes your work confidence scale.</p>
+
+<h1>4. Update Documentation</h1>
+
+<p>It&#8217;s easy to get caught up in the coding aspects of your contribution, but documentation is often just as important. You don&#8217;t want your hard work to go unnoticed simply because users didn&#8217;t know about it. Before submitting that pull request, scan the project for existing documentation related to your change. Update it if necessary or add it if it&#8217;s missing and important. Updating the documentation also gives the project author more confidence in the completeness of your work. The effort will be greatly appreciated, I promise.</p>
+
+<p>If you follow these four practices and keep the goal of doing whatever you can to promote the quick acceptance of your contribution in mind, I&#8217;m confident you&#8217;ll have more success getting your contributions included in some of your favorite projects while building some good will along the way.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -882,65 +950,6 @@ caveat beforehand, and the confidence will take care of itself.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/01/12/parsing-pcap-files-in-nodejs-w/">Parsing Pcap Files in Node.js With Pcap-parser</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-12T08:00:00-05:00" pubdate data-updated="true">Jan 12<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>On my current project we&#8217;ve been using <a href="http://nodejs.org">Node.js</a> for an app that does a lot of packet capture and processing. In the past we used <a href="https://github.com/mranney/node_pcap">node-pcap</a> for packet capture but were looking for an easier way to simply parse raw pcap files. It turns out the <a href="http://wiki.wireshark.org/Development/LibpcapFileFormat">pcap file format</a> is pretty simple as was writing a node module to parse it.</p>
-
-<p>The module, called <a href="https://github.com/nearinfinity/node-pcap-parser">pcap-parser</a>, can be used to parse any pcap file or readable pcap stream, such as the piped output of <a href="http://www.tcpdump.org/">tcpdump</a>. As packets are parsed, pcap-parser emits relevant events to which your node program can listen. It&#8217;s a really simple way to process a theoretically infinite stream of pcap data. The code below shows a basic example of it in action. Please check out the <a href="https://github.com/nearinfinity/node-pcap-parser">project page</a> for more details.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">pcapp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pcap-parser&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="nx">pcapp</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;/path/to/file.pcap&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="c1">// var parser = pcapp.parse(process.stdin);</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">parser</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;packet&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">packet</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">packet</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
-</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">packet</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -956,6 +965,10 @@ caveat beforehand, and the confidence will take care of itself.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/10/pull-request-etiquette/">Pull Request Etiquette</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
       </li>
     
@@ -969,10 +982,6 @@ caveat beforehand, and the confidence will take care of itself.</p>
     
       <li class="post">
         <a href="/blog/2012/07/26/tech-presentation-tip-1-avoid-screen-resolution-shock/">Tech Presentation Tip 1 - Avoid Screen Resolution Shock</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/12/introducing-db-meta-for-nodejs/">Introducing db-meta for NodeJS</a>
       </li>
     
   </ul>

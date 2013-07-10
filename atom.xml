@@ -4,7 +4,7 @@
   <title><![CDATA[Jeff Kunkle's Blog]]></title>
   <link href="http://kunkle.org/atom.xml" rel="self"/>
   <link href="http://kunkle.org/"/>
-  <updated>2013-01-13T15:57:57-05:00</updated>
+  <updated>2013-07-10T18:34:37-04:00</updated>
   <id>http://kunkle.org/</id>
   <author>
     <name><![CDATA[Jeff Kunkle]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pull Request Etiquette]]></title>
+    <link href="http://kunkle.org/blog/2013/07/10/pull-request-etiquette/"/>
+    <updated>2013-07-10T00:00:00-04:00</updated>
+    <id>http://kunkle.org/blog/2013/07/10/pull-request-etiquette</id>
+    <content type="html"><![CDATA[<p>Over the last few years I&#8217;ve found myself creating and accepting an increasing number of <a href="https://help.github.com/articles/using-pull-requests">Github pull requests</a>. During that time I&#8217;ve formed some helpful opinions on what makes a good pull request that may also be useful for you to consider. Much of what makes a successful pull request boils down to</p>
+
+<ol>
+<li>doing as much of the work for the author as possible</li>
+<li>instilling author confidence in the contribution</li>
+</ol>
+
+
+<p>The overarching goal in the back of your mind should be doing whatever you can to facilitate the quick acceptance of your pull request. While I list four specific practices on what promotes a good pull request below, keeping this goal in mind will likely reveal many more. After all, you didn&#8217;t spend all that time fixing/editing/enhancing someone else&#8217;s project for it not to be accepted, did you?</p>
+
+<h1>1. Include Tests</h1>
+
+<p>One of the quickest ways to slow down acceptance of your pull request is to omit tests for your changes. This doesn&#8217;t just mean adding tests to cover your changes, but also editing existing ones or deleting tests rendered obsolete by your work. Project authors are busy people, especially if the the project is popular or one of many they&#8217;re maintaining. While pull requests are always appreciated, leaving the testing and verification of your changes to the author is likely to move you down the acceptance queue. It certainly does for my projects.</p>
+
+<p>Also, consider that the author may not be an expert in every aspect of the project. Successful, long-running projects often accumulate features from a variety of external contributors to fix edge cases, support niche features, etc. The author is unlikely to be fully knowledgeable about the intricacies of every contribution, so please help him or her out by including tests that provide some confidence in the quality and thoroughness of your work.</p>
+
+<h1>2. Keep Changes Small</h1>
+
+<p>When I see a pull request with many changed files scattered over dozens of commits, my first thought is &#8220;this is going to take a while; better hold off until I have more time.&#8221; Unfortunately, that extra time doesn&#8217;t come often enough and the pull request ends up sitting unmerged for much longer than I&#8217;d like. If possible, it&#8217;s better to break your contribution up into multiple, smaller, independent pull requests. For contributions where that&#8217;s not possible and larger changes are required, consider these two options:</p>
+
+<ol>
+<li>Provide a lengthy explanation of the work in your pull request summary. Be sure to describe the changes thoroughly enough for the author to dig into the code with an idea of what he or she should expect to see.</li>
+<li>Create an issue for the project as a way to open a discussion of the proposed changes before submitting any pull requests. This gives the author an opportunity to better understand the contribution and provide feedback. It also ensures a speedier acceptance when you finally do submit the pull request.</li>
+</ol>
+
+
+<h1>3. Stick to Existing Conventions</h1>
+
+<p>Nearly everyone has strong opinions on code format and conventions, but when you&#8217;re submitting a pull request you need to stick with the existing conventions of the project. If the JavaScript in the existing project omits semicolons at the end of the line then you should omit them too, no matter how fervently you feel they should be included. Again, this gets back to doing everything you can to facilitate the quick acceptance of your pull request. It&#8217;s very frustrating for an author to get a great contribution that they&#8217;ll need to tediously comb through to reformat. It also gives the impression of a lazy or uncompromising contributor, which penalizes your work confidence scale.</p>
+
+<h1>4. Update Documentation</h1>
+
+<p>It&#8217;s easy to get caught up in the coding aspects of your contribution, but documentation is often just as important. You don&#8217;t want your hard work to go unnoticed simply because users didn&#8217;t know about it. Before submitting that pull request, scan the project for existing documentation related to your change. Update it if necessary or add it if it&#8217;s missing and important. Updating the documentation also gives the project author more confidence in the completeness of your work. The effort will be greatly appreciated, I promise.</p>
+
+<p>If you follow these four practices and keep the goal of doing whatever you can to promote the quick acceptance of your contribution in mind, I&#8217;m confident you&#8217;ll have more success getting your contributions included in some of your favorite projects while building some good will along the way.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[NodeJS Test Coverage Reporting with CoverShot]]></title>
@@ -992,23 +1035,6 @@ will do wonders for your sense of accomplishment.</p>
 <p>Looking at this line of code, I thought for sure I was safe from any sneaky <code>NullPointerException</code>. If <code>book</code>, <code>author</code> or <code>firstName</code> are <code>null</code> I&#8217;ll simply end up printing <code>null</code> and not have to worry about the <code>concat()</code> method. After all, if the <code>trim()</code> method succeeds, there&#8217;s no sense in guarding it&#8217;s result for <code>null</code>. And that&#8217;s where I was wrong.</p>
 
 <p>I naively assumed the method chain would stop once the safe navigation operator encountered a <code>null</code> when in fact it does not. While the <code>trim()</code> method is safe from being called on a <code>null</code> <code>firstName</code> object, it will return <code>null</code>, upon which the <code>concat()</code> method is called. Oops!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Use DNS Search Domains for Shorter URLs]]></title>
-    <link href="http://kunkle.org/blog/2009/01/24/use-dns-search-domains-for-sho/"/>
-    <updated>2009-01-24T20:01:37-05:00</updated>
-    <id>http://kunkle.org/blog/2009/01/24/use-dns-search-domains-for-sho</id>
-    <content type="html"><![CDATA[<p>While I was reading through some Apple documentation on Bonjour I stumbled across a discussion on link-local addressing and DNS search domains. While the details of link-local addressing aren&#8217;t that important here, the discussion on DNS search domains triggered a little light bulb in my brain.</p>
-
-<p>You see, DNS search domains are used as a guide to help your computer lookup an IP address when something simple like &#8220;blogs&#8221; is typed into your browser&#8217;s URL. If you setup a DNS search domain of &#8220;nearinfinity.com&#8221;, typing &#8220;blogs&#8221; will force your computer to first check if there&#8217;s an address for &#8220;blogs.nearinfinity.com&#8221;. If not it falls back to its default behavior.</p>
-
-<p>If you&#8217;re a person that spends a lot of time on a small number of websites, you could use DNS search domains to your advantage to make navigating to those sites a snap. For instance, I just setup &#8220;nearinfinity.com&#8221; as an entry in my DNS search domains on my Mac. Simply go to the network preferences pane, click the advanced button at the bottom left, and then the DNS tab on the resulting popup.</p>
-
-<p><img src="http://kunkle.org/assets/dns_search_domains_osx.jpg" title="DNS Search Domain" alt="dnssearch" /></p>
-
-<p>So now, whenever I type &#8220;blogs&#8221; in my URL I get &#8220;blogs.nearinfinity.com&#8221;. Whenever I type &#8220;support&#8221; I get &#8220;support.nearinfinity.com&#8221;. I think you probably get the idea. I know I&#8217;m no genius for discovering this since it&#8217;s precisely the reason for having search domains. I just never thought to use them before.</p>
 ]]></content>
   </entry>
   

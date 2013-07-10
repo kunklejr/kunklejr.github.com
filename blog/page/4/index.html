@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Talks - Jeff Kunkle's Blog</title>
+  <title>Jeff Kunkle's Blog</title>
   <meta name="author" content="Jeff Kunkle">
 
   
-  <meta name="description" content="Rising from non-existence three short years ago, Node.js is already attracting the accolades and disdain enjoyed and endured by the Ruby and Rails &hellip;">
+  <meta name="description" content="JSP 2.0 introduced a handy new capability allowing you to use JSP Expressions directly within the template text (i.e. outside of tag libraries or tag &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kunkle.org/talks/">
+  <link rel="canonical" href="http://kunkle.org/blog/page/4/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -76,108 +76,103 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
-    <h1 class="entry-title">Talks</h1>
+    
+      <h1 class="entry-title"><a href="/blog/2006/06/25/beware-of-xss-when-using/">XSS Vulnerabilities of JSP 2.0 Expressions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-06-25T15:46:48-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2006</time>
+        
+      </p>
     
   </header>
-  
-  <article>
-  <header>
-    <h1 class="entry-title">Node.js Explained</h1>
-    <p class="meta">
-      <time datetime="2012-07-17T00:00:00-04:00" pubdate=""
-      data-updated="true">July 17<span>th</span>, 2012</time>
-    </p>
-  </header>
-  <div class="entry-content">
-    <p>
-    Rising from non-existence three short years ago, Node.js is
-    already attracting the accolades and disdain enjoyed and endured by
-    the Ruby and Rails community just a short time ago. It overtook
-    Rails as the most popular Github repository November 2011 and was
-    selected by InfoWorld for the Technology of the Year Award in 2012.
-    This presentation explains the basic theory and programming model
-    central to Node&#8217;s approach and will help you understand the
-    resulting benefits and challenges it presents.
-    </p>
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/L0pjVcIsU6A" frameborder="0" allowfullscreen></iframe>
-  </div>
-</article>
 
-<article>
-  <header>
-    <h1 class="entry-title">Presentation Tips</h1>
-    <p class="meta">
-      <time datetime="2011-08-14T00:00:00-04:00" pubdate=""
-      data-updated="true">Aug 14<span>th</span>, 2011</time>
-    </p>
-  </header>
-  <div class="entry-content">
-    <p>
-    There&#8217;s an endless supply of books, articles, blog posts, and videos to
-    help you improve your presentations. Most of them focus on the
-    organization and delivery aspects of presenting, which is obviously a
-    critical piece. This presentations is slightly different. It focuses on
-    some of the technical aspects surrounding your presentation, such as
-    making sure you have the right adapter for your projector, preparing for
-    screen-resolution shock, minimizing your external distractions, and
-    sixteen more. These tips are easy to implement and will give your
-    presentations an instant boost in effectiveness and professionalism.
-    </p>
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/8l6dmfXovto" frameborder="0" allowfullscreen></iframe>
-  </div>
-</article>
 
-<article>
-  <header>
-    <h1 class="entry-title">Static Website Generation</h1>
-    <p class="meta">
-      <time datetime="2011-03-26:00:00-04:00" pubdate=""
-      data-updated="true">Mar 26<span>th</span>, 2011</time>
-    </p>
-  </header>
-  <div class="entry-content">
-    <p>
-    With all the tools available today for publishing a website or
-    blog,it&#8217;s easy to discount the traditional static website. However,
-    you should think twice before drawing that conclusion. Static
-    websites are super-fast, easy to implement, and can be hosted with
-    almost any provider. This short presentation touches on static
-    website generation using nanoc, a static website generation tool
-    written in Ruby. While you won&#8217;t be a nanoc expert after watching
-    the video, it should give you an idea of how easy it is to quickly
-    get up and running with astatic site.
-    </p>
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/pIzpBgu_bNM" frameborder="0" allowfullscreen></iframe>
-  </div>
-</article>
+  <div class="entry-content"><p>JSP 2.0 introduced a handy new capability allowing you to use JSP Expressions directly within the template text (i.e. outside of tag libraries or tag files) of a web page. This allows developers to easily expose data and objects stored in application, session, request, or page scope using a simple Ant-style syntax. It allows you to replace this</p>
 
-  
-    <footer>
-      
-      
-        <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/talks/index.html" data-via="kunklejr" data-counturl="http://kunkle.org/talks/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='jsp'><span class='line'><span class="nt">&lt;table&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;c:forEach</span> <span class="na">var=</span><span class="s">&quot;book&quot;</span> <span class="na">items=</span><span class="s">&quot;${books}&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;tr&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;&lt;c:out</span> <span class="na">value=</span><span class="s">&quot;${book.title}&quot;</span><span class="nt">/&gt;&lt;/td&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;&lt;c:out</span> <span class="na">value=</span><span class="s">&quot;${book.author}&quot;</span><span class="nt">/&gt;&lt;/td&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;&lt;c:out</span> <span class="na">value=</span><span class="s">&quot;${book.isbn}&quot;</span><span class="nt">/&gt;&lt;/td&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/tr&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/c:forEach&gt;</span>
+</span><span class='line'><span class="nt">&lt;/table&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>with this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='jsp'><span class='line'><span class="nt">&lt;table&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;c:forEach</span> <span class="na">var=</span><span class="s">&quot;book&quot;</span> <span class="na">items=</span><span class="s">&quot;${books}&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;tr&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>${book.title}<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>${book.author}<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>${book.isbn}<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/tr&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/c:forEach&gt;</span>
+</span><span class='line'><span class="nt">&lt;/table&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, the syntax in the second example is much cleaner. But, &#8220;with great power comes great responsibility.&#8221; The chink in the armor that every tutorial I&#8217;ve read (including <a href="http://java.sun.com/javaee/5/docs/tutorial/doc/index.html">Sun&#8217;s Java EE 5 Tutorial</a> fails to mention is that the expression syntax does not escape HTML characters. Therefore, <em>any web application using JSP Expressions to output unsanitized, user-entered data will be vulnerable to Cross Site Scripting (XSS) attacks.</em></p>
+
+<p>Unfortunately, the cure for this XSS vulnerability leads us right back to our first example. As section 2.2.2 of the <a href="http://jcp.org/aboutJava/communityprocess/final/jsr152">JSP 2.0 Specification</a> reads, &#8220;In cases where escaping is desired (for example, to help prevent cross-site scripting attacks), the JSTL core tag c:out can be used.&#8221;</p>
+
+<p>My advice is to use JSP Expressions only as tag library attribute values and stick to using JSTL&#8217;s c:out tag for writing text to a page. Deciding which instances of template text expression usage are safe and which are not is simply too error prone and the consequences of a mistake too dangerous.</p>
 </div>
-
-      
-    </footer>
   
-</article>
+  
 
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/3/">Newer &rarr;</a>
+    
+  </div>
 </div>
-
 <aside class="sidebar">
   
     <section>
@@ -210,7 +205,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/kunklejr">@kunklejr</a> on GitHub
@@ -240,7 +235,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -268,7 +263,6 @@
 
   
 </aside>
-
 
     </div>
   </div>

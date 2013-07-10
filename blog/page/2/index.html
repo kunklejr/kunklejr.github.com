@@ -9,7 +9,7 @@
   <meta name="author" content="Jeff Kunkle">
 
   
-  <meta name="description" content="System Metrics is a new Rails 3 Engine providing a clean web interface to the performance metrics instrumented with ActiveSupport::Notifications. It &hellip;">
+  <meta name="description" content="On my current project we&#8217;ve been using Node.js for an app that does a lot of packet capture and processing. In the past we used node-pcap for &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,65 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/12/parsing-pcap-files-in-nodejs-w/">Parsing Pcap Files in Node.js With Pcap-parser</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-12T08:00:00-05:00" pubdate data-updated="true">Jan 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>On my current project we&#8217;ve been using <a href="http://nodejs.org">Node.js</a> for an app that does a lot of packet capture and processing. In the past we used <a href="https://github.com/mranney/node_pcap">node-pcap</a> for packet capture but were looking for an easier way to simply parse raw pcap files. It turns out the <a href="http://wiki.wireshark.org/Development/LibpcapFileFormat">pcap file format</a> is pretty simple as was writing a node module to parse it.</p>
+
+<p>The module, called <a href="https://github.com/nearinfinity/node-pcap-parser">pcap-parser</a>, can be used to parse any pcap file or readable pcap stream, such as the piped output of <a href="http://www.tcpdump.org/">tcpdump</a>. As packets are parsed, pcap-parser emits relevant events to which your node program can listen. It&#8217;s a really simple way to process a theoretically infinite stream of pcap data. The code below shows a basic example of it in action. Please check out the <a href="https://github.com/nearinfinity/node-pcap-parser">project page</a> for more details.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">pcapp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pcap-parser&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="nx">pcapp</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;/path/to/file.pcap&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// var parser = pcapp.parse(process.stdin);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">parser</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;packet&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">packet</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">packet</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">packet</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -714,50 +773,6 @@ will do wonders for your sense of accomplishment.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/01/24/use-dns-search-domains-for-sho/">Use DNS Search Domains for Shorter URLs</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-01-24T20:01:37-05:00" pubdate data-updated="true">Jan 24<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>While I was reading through some Apple documentation on Bonjour I stumbled across a discussion on link-local addressing and DNS search domains. While the details of link-local addressing aren&#8217;t that important here, the discussion on DNS search domains triggered a little light bulb in my brain.</p>
-
-<p>You see, DNS search domains are used as a guide to help your computer lookup an IP address when something simple like &#8220;blogs&#8221; is typed into your browser&#8217;s URL. If you setup a DNS search domain of &#8220;nearinfinity.com&#8221;, typing &#8220;blogs&#8221; will force your computer to first check if there&#8217;s an address for &#8220;blogs.nearinfinity.com&#8221;. If not it falls back to its default behavior.</p>
-
-<p>If you&#8217;re a person that spends a lot of time on a small number of websites, you could use DNS search domains to your advantage to make navigating to those sites a snap. For instance, I just setup &#8220;nearinfinity.com&#8221; as an entry in my DNS search domains on my Mac. Simply go to the network preferences pane, click the advanced button at the bottom left, and then the DNS tab on the resulting popup.</p>
-
-<p><img src="/assets/dns_search_domains_osx.jpg" title="DNS Search Domain" alt="dnssearch" /></p>
-
-<p>So now, whenever I type &#8220;blogs&#8221; in my URL I get &#8220;blogs.nearinfinity.com&#8221;. Whenever I type &#8220;support&#8221; I get &#8220;support.nearinfinity.com&#8221;. I think you probably get the idea. I know I&#8217;m no genius for discovering this since it&#8217;s precisely the reason for having search domains. I just never thought to use them before.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -775,6 +790,10 @@ will do wonders for your sense of accomplishment.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/10/pull-request-etiquette/">Pull Request Etiquette</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
       </li>
     
@@ -788,10 +807,6 @@ will do wonders for your sense of accomplishment.</p>
     
       <li class="post">
         <a href="/blog/2012/07/26/tech-presentation-tip-1-avoid-screen-resolution-shock/">Tech Presentation Tip 1 - Avoid Screen Resolution Shock</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/12/introducing-db-meta-for-nodejs/">Introducing db-meta for NodeJS</a>
       </li>
     
   </ul>

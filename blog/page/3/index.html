@@ -9,32 +9,7 @@
   <meta name="author" content="Jeff Kunkle">
 
   
-  <meta name="description" content="Quick quiz, what is the output from the following JUnit test? 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-package com. &hellip;">
+  <meta name="description" content="While I was reading through some Apple documentation on Bonjour I stumbled across a discussion on link-local addressing and DNS search domains. While &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,6 +78,50 @@ package com. &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/24/use-dns-search-domains-for-sho/">Use DNS Search Domains for Shorter URLs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-24T20:01:37-05:00" pubdate data-updated="true">Jan 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While I was reading through some Apple documentation on Bonjour I stumbled across a discussion on link-local addressing and DNS search domains. While the details of link-local addressing aren&#8217;t that important here, the discussion on DNS search domains triggered a little light bulb in my brain.</p>
+
+<p>You see, DNS search domains are used as a guide to help your computer lookup an IP address when something simple like &#8220;blogs&#8221; is typed into your browser&#8217;s URL. If you setup a DNS search domain of &#8220;nearinfinity.com&#8221;, typing &#8220;blogs&#8221; will force your computer to first check if there&#8217;s an address for &#8220;blogs.nearinfinity.com&#8221;. If not it falls back to its default behavior.</p>
+
+<p>If you&#8217;re a person that spends a lot of time on a small number of websites, you could use DNS search domains to your advantage to make navigating to those sites a snap. For instance, I just setup &#8220;nearinfinity.com&#8221; as an entry in my DNS search domains on my Mac. Simply go to the network preferences pane, click the advanced button at the bottom left, and then the DNS tab on the resulting popup.</p>
+
+<p><img src="/assets/dns_search_domains_osx.jpg" title="DNS Search Domain" alt="dnssearch" /></p>
+
+<p>So now, whenever I type &#8220;blogs&#8221; in my URL I get &#8220;blogs.nearinfinity.com&#8221;. Whenever I type &#8220;support&#8221; I get &#8220;support.nearinfinity.com&#8221;. I think you probably get the idea. I know I&#8217;m no genius for discovering this since it&#8217;s precisely the reason for having search domains. I just never thought to use them before.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -850,93 +869,9 @@ One extemely important thing to remember when using this workaround is that you 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/06/25/beware-of-xss-when-using/">XSS Vulnerabilities of JSP 2.0 Expressions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-06-25T15:46:48-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>JSP 2.0 introduced a handy new capability allowing you to use JSP Expressions directly within the template text (i.e. outside of tag libraries or tag files) of a web page. This allows developers to easily expose data and objects stored in application, session, request, or page scope using a simple Ant-style syntax. It allows you to replace this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='jsp'><span class='line'><span class="nt">&lt;table&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;c:forEach</span> <span class="na">var=</span><span class="s">&quot;book&quot;</span> <span class="na">items=</span><span class="s">&quot;${books}&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;tr&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;td&gt;&lt;c:out</span> <span class="na">value=</span><span class="s">&quot;${book.title}&quot;</span><span class="nt">/&gt;&lt;/td&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;td&gt;&lt;c:out</span> <span class="na">value=</span><span class="s">&quot;${book.author}&quot;</span><span class="nt">/&gt;&lt;/td&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;td&gt;&lt;c:out</span> <span class="na">value=</span><span class="s">&quot;${book.isbn}&quot;</span><span class="nt">/&gt;&lt;/td&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/tr&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/c:forEach&gt;</span>
-</span><span class='line'><span class="nt">&lt;/table&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>with this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='jsp'><span class='line'><span class="nt">&lt;table&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;c:forEach</span> <span class="na">var=</span><span class="s">&quot;book&quot;</span> <span class="na">items=</span><span class="s">&quot;${books}&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;tr&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;td&gt;</span>${book.title}<span class="nt">&lt;/td&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;td&gt;</span>${book.author}<span class="nt">&lt;/td&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;td&gt;</span>${book.isbn}<span class="nt">&lt;/td&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/tr&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/c:forEach&gt;</span>
-</span><span class='line'><span class="nt">&lt;/table&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>As you can see, the syntax in the second example is much cleaner. But, &#8220;with great power comes great responsibility.&#8221; The chink in the armor that every tutorial I&#8217;ve read (including <a href="http://java.sun.com/javaee/5/docs/tutorial/doc/index.html">Sun&#8217;s Java EE 5 Tutorial</a> fails to mention is that the expression syntax does not escape HTML characters. Therefore, <em>any web application using JSP Expressions to output unsanitized, user-entered data will be vulnerable to Cross Site Scripting (XSS) attacks.</em></p>
-
-<p>Unfortunately, the cure for this XSS vulnerability leads us right back to our first example. As section 2.2.2 of the <a href="http://jcp.org/aboutJava/communityprocess/final/jsr152">JSP 2.0 Specification</a> reads, &#8220;In cases where escaping is desired (for example, to help prevent cross-site scripting attacks), the JSTL core tag c:out can be used.&#8221;</p>
-
-<p>My advice is to use JSP Expressions only as tag library attribute values and stick to using JSTL&#8217;s c:out tag for writing text to a page. Deciding which instances of template text expression usage are safe and which are not is simply too error prone and the consequences of a mistake too dangerous.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -949,6 +884,10 @@ One extemely important thing to remember when using this workaround is that you 
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/10/pull-request-etiquette/">Pull Request Etiquette</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
@@ -964,10 +903,6 @@ One extemely important thing to remember when using this workaround is that you 
     
       <li class="post">
         <a href="/blog/2012/07/26/tech-presentation-tip-1-avoid-screen-resolution-shock/">Tech Presentation Tip 1 - Avoid Screen Resolution Shock</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/12/introducing-db-meta-for-nodejs/">Introducing db-meta for NodeJS</a>
       </li>
     
   </ul>

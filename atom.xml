@@ -4,7 +4,7 @@
   <title><![CDATA[Jeff Kunkle's Blog]]></title>
   <link href="http://kunkle.org/atom.xml" rel="self"/>
   <link href="http://kunkle.org/"/>
-  <updated>2013-07-10T18:34:37-04:00</updated>
+  <updated>2013-07-10T18:38:18-04:00</updated>
   <id>http://kunkle.org/</id>
   <author>
     <name><![CDATA[Jeff Kunkle]]></name>
@@ -28,13 +28,13 @@
 
 <p>The overarching goal in the back of your mind should be doing whatever you can to facilitate the quick acceptance of your pull request. While I list four specific practices on what promotes a good pull request below, keeping this goal in mind will likely reveal many more. After all, you didn&#8217;t spend all that time fixing/editing/enhancing someone else&#8217;s project for it not to be accepted, did you?</p>
 
-<h1>1. Include Tests</h1>
+<h2>1. Include Tests</h2>
 
 <p>One of the quickest ways to slow down acceptance of your pull request is to omit tests for your changes. This doesn&#8217;t just mean adding tests to cover your changes, but also editing existing ones or deleting tests rendered obsolete by your work. Project authors are busy people, especially if the the project is popular or one of many they&#8217;re maintaining. While pull requests are always appreciated, leaving the testing and verification of your changes to the author is likely to move you down the acceptance queue. It certainly does for my projects.</p>
 
 <p>Also, consider that the author may not be an expert in every aspect of the project. Successful, long-running projects often accumulate features from a variety of external contributors to fix edge cases, support niche features, etc. The author is unlikely to be fully knowledgeable about the intricacies of every contribution, so please help him or her out by including tests that provide some confidence in the quality and thoroughness of your work.</p>
 
-<h1>2. Keep Changes Small</h1>
+<h2>2. Keep Changes Small</h2>
 
 <p>When I see a pull request with many changed files scattered over dozens of commits, my first thought is &#8220;this is going to take a while; better hold off until I have more time.&#8221; Unfortunately, that extra time doesn&#8217;t come often enough and the pull request ends up sitting unmerged for much longer than I&#8217;d like. If possible, it&#8217;s better to break your contribution up into multiple, smaller, independent pull requests. For contributions where that&#8217;s not possible and larger changes are required, consider these two options:</p>
 
@@ -44,11 +44,11 @@
 </ol>
 
 
-<h1>3. Stick to Existing Conventions</h1>
+<h2>3. Stick to Existing Conventions</h2>
 
 <p>Nearly everyone has strong opinions on code format and conventions, but when you&#8217;re submitting a pull request you need to stick with the existing conventions of the project. If the JavaScript in the existing project omits semicolons at the end of the line then you should omit them too, no matter how fervently you feel they should be included. Again, this gets back to doing everything you can to facilitate the quick acceptance of your pull request. It&#8217;s very frustrating for an author to get a great contribution that they&#8217;ll need to tediously comb through to reformat. It also gives the impression of a lazy or uncompromising contributor, which penalizes your work confidence scale.</p>
 
-<h1>4. Update Documentation</h1>
+<h2>4. Update Documentation</h2>
 
 <p>It&#8217;s easy to get caught up in the coding aspects of your contribution, but documentation is often just as important. You don&#8217;t want your hard work to go unnoticed simply because users didn&#8217;t know about it. Before submitting that pull request, scan the project for existing documentation related to your change. Update it if necessary or add it if it&#8217;s missing and important. Updating the documentation also gives the project author more confidence in the completeness of your work. The effort will be greatly appreciated, I promise.</p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Jeff Kunkle's Blog]]></title>
   <link href="http://kunkle.org/atom.xml" rel="self"/>
   <link href="http://kunkle.org/"/>
-  <updated>2013-07-10T18:38:18-04:00</updated>
+  <updated>2013-08-02T23:21:35-04:00</updated>
   <id>http://kunkle.org/</id>
   <author>
     <name><![CDATA[Jeff Kunkle]]></name>
@@ -18,7 +18,7 @@
     <link href="http://kunkle.org/blog/2013/07/10/pull-request-etiquette/"/>
     <updated>2013-07-10T00:00:00-04:00</updated>
     <id>http://kunkle.org/blog/2013/07/10/pull-request-etiquette</id>
-    <content type="html"><![CDATA[<p>Over the last few years I&#8217;ve found myself creating and accepting an increasing number of <a href="https://help.github.com/articles/using-pull-requests">Github pull requests</a>. During that time I&#8217;ve formed some helpful opinions on what makes a good pull request that may also be useful for you to consider. Much of what makes a successful pull request boils down to</p>
+    <content type="html"><![CDATA[<p>Over the last few years I&rsquo;ve found myself creating and accepting an increasing number of <a href="https://help.github.com/articles/using-pull-requests">Github pull requests</a>. During that time I&rsquo;ve formed some helpful opinions on what makes a good pull request that may also be useful for you to consider. Much of what makes a successful pull request boils down to</p>
 
 <ol>
 <li>doing as much of the work for the author as possible</li>
@@ -26,17 +26,17 @@
 </ol>
 
 
-<p>The overarching goal in the back of your mind should be doing whatever you can to facilitate the quick acceptance of your pull request. While I list four specific practices on what promotes a good pull request below, keeping this goal in mind will likely reveal many more. After all, you didn&#8217;t spend all that time fixing/editing/enhancing someone else&#8217;s project for it not to be accepted, did you?</p>
+<p>The overarching goal in the back of your mind should be doing whatever you can to facilitate the quick acceptance of your pull request. While I list four specific practices on what promotes a good pull request below, keeping this goal in mind will likely reveal many more. After all, you didn&rsquo;t spend all that time fixing/editing/enhancing someone else&rsquo;s project for it not to be accepted, did you?</p>
 
 <h2>1. Include Tests</h2>
 
-<p>One of the quickest ways to slow down acceptance of your pull request is to omit tests for your changes. This doesn&#8217;t just mean adding tests to cover your changes, but also editing existing ones or deleting tests rendered obsolete by your work. Project authors are busy people, especially if the the project is popular or one of many they&#8217;re maintaining. While pull requests are always appreciated, leaving the testing and verification of your changes to the author is likely to move you down the acceptance queue. It certainly does for my projects.</p>
+<p>One of the quickest ways to slow down acceptance of your pull request is to omit tests for your changes. This doesn&rsquo;t just mean adding tests to cover your changes, but also editing existing ones or deleting tests rendered obsolete by your work. Project authors are busy people, especially if the the project is popular or one of many they&rsquo;re maintaining. While pull requests are always appreciated, leaving the testing and verification of your changes to the author is likely to move you down the acceptance queue. It certainly does for my projects.</p>
 
 <p>Also, consider that the author may not be an expert in every aspect of the project. Successful, long-running projects often accumulate features from a variety of external contributors to fix edge cases, support niche features, etc. The author is unlikely to be fully knowledgeable about the intricacies of every contribution, so please help him or her out by including tests that provide some confidence in the quality and thoroughness of your work.</p>
 
 <h2>2. Keep Changes Small</h2>
 
-<p>When I see a pull request with many changed files scattered over dozens of commits, my first thought is &#8220;this is going to take a while; better hold off until I have more time.&#8221; Unfortunately, that extra time doesn&#8217;t come often enough and the pull request ends up sitting unmerged for much longer than I&#8217;d like. If possible, it&#8217;s better to break your contribution up into multiple, smaller, independent pull requests. For contributions where that&#8217;s not possible and larger changes are required, consider these two options:</p>
+<p>When I see a pull request with many changed files scattered over dozens of commits, my first thought is &ldquo;this is going to take a while; better hold off until I have more time.&rdquo; Unfortunately, that extra time doesn&rsquo;t come often enough and the pull request ends up sitting unmerged for much longer than I&rsquo;d like. If possible, it&rsquo;s better to break your contribution up into multiple, smaller, independent pull requests. For contributions where that&rsquo;s not possible and larger changes are required, consider these two options:</p>
 
 <ol>
 <li>Provide a lengthy explanation of the work in your pull request summary. Be sure to describe the changes thoroughly enough for the author to dig into the code with an idea of what he or she should expect to see.</li>
@@ -46,13 +46,13 @@
 
 <h2>3. Stick to Existing Conventions</h2>
 
-<p>Nearly everyone has strong opinions on code format and conventions, but when you&#8217;re submitting a pull request you need to stick with the existing conventions of the project. If the JavaScript in the existing project omits semicolons at the end of the line then you should omit them too, no matter how fervently you feel they should be included. Again, this gets back to doing everything you can to facilitate the quick acceptance of your pull request. It&#8217;s very frustrating for an author to get a great contribution that they&#8217;ll need to tediously comb through to reformat. It also gives the impression of a lazy or uncompromising contributor, which penalizes your work confidence scale.</p>
+<p>Nearly everyone has strong opinions on code format and conventions, but when you&rsquo;re submitting a pull request you need to stick with the existing conventions of the project. If the JavaScript in the existing project omits semicolons at the end of the line then you should omit them too, no matter how fervently you feel they should be included. Again, this gets back to doing everything you can to facilitate the quick acceptance of your pull request. It&rsquo;s very frustrating for an author to get a great contribution that they&rsquo;ll need to tediously comb through to reformat. It also gives the impression of a lazy or uncompromising contributor, which penalizes your work confidence scale.</p>
 
 <h2>4. Update Documentation</h2>
 
-<p>It&#8217;s easy to get caught up in the coding aspects of your contribution, but documentation is often just as important. You don&#8217;t want your hard work to go unnoticed simply because users didn&#8217;t know about it. Before submitting that pull request, scan the project for existing documentation related to your change. Update it if necessary or add it if it&#8217;s missing and important. Updating the documentation also gives the project author more confidence in the completeness of your work. The effort will be greatly appreciated, I promise.</p>
+<p>It&rsquo;s easy to get caught up in the coding aspects of your contribution, but documentation is often just as important. You don&rsquo;t want your hard work to go unnoticed simply because users didn&rsquo;t know about it. Before submitting that pull request, scan the project for existing documentation related to your change. Update it if necessary or add it if it&rsquo;s missing and important. Updating the documentation also gives the project author more confidence in the completeness of your work. The effort will be greatly appreciated, I promise.</p>
 
-<p>If you follow these four practices and keep the goal of doing whatever you can to promote the quick acceptance of your contribution in mind, I&#8217;m confident you&#8217;ll have more success getting your contributions included in some of your favorite projects while building some good will along the way.</p>
+<p>If you follow these four practices and keep the goal of doing whatever you can to promote the quick acceptance of your contribution in mind, I&rsquo;m confident you&rsquo;ll have more success getting your contributions included in some of your favorite projects while building some good will along the way.</p>
 ]]></content>
   </entry>
   
@@ -63,20 +63,20 @@
     <id>http://kunkle.org/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot</id>
     <content type="html"><![CDATA[<p>Automated testing is a critically important practice at Near Infinity.
 We try to automate every test we can and run them all the time as part
-of a continuous integration process. But how do you know if you&#8217;re tests
+of a continuous integration process. But how do you know if you&rsquo;re tests
 are any good? One method for doing so is reporting on your test
 <a href="http://en.wikipedia.org/wiki/Code_coverage">code coverage</a>.</p>
 
-<p>If you&#8217;re using Node.js, there are <a href="https://github.com/substack/node-bunker">several</a>
+<p>If you&rsquo;re using Node.js, there are <a href="https://github.com/substack/node-bunker">several</a>
 <a href="https://github.com/visionmedia/node-jscoverage">tools</a> for instrumenting
 your code for coverage analysis, but none provide a great output format
-for easily viewing and navigating the results. That&#8217;s why we decided to
+for easily viewing and navigating the results. That&rsquo;s why we decided to
 create <a href="http://nearinfinity.github.com/node-covershot/">CoverShot</a>.</p>
 
 <p><a href="http://nearinfinity.github.com/node-covershot/">CoverShot</a> is a
 multi-format, test framework agnostic, code coverage
-report generator for Node.js applications and modules. That&#8217;s a mouthful
-for saying it&#8217;s a tool that generates nice code coverage output in
+report generator for Node.js applications and modules. That&rsquo;s a mouthful
+for saying it&rsquo;s a tool that generates nice code coverage output in
 several formats, no matter which test framework you use. A sample of the
 HTML summary page is shown below.</p>
 
@@ -85,18 +85,18 @@ HTML summary page is shown below.</p>
 <p>Some of the most interesting features of CoverShot include:</p>
 
 <ul>
-<li><strong>Test Framework Agnostic</strong> - It doesn&#8217;t matter which test framework you
-use. In fact, your test framework won&#8217;t even know that code
+<li><strong>Test Framework Agnostic</strong> &ndash; It doesn&rsquo;t matter which test framework you
+use. In fact, your test framework won&rsquo;t even know that code
 coverage is being collected.</li>
-<li><strong>Multi-process Support</strong> - Coverage will be collected even on
+<li><strong>Multi-process Support</strong> &ndash; Coverage will be collected even on
 code executed by spawned child processes.</li>
-<li><strong>Not Tied to Testing</strong> - There&#8217;s nothing about CoverShot that
+<li><strong>Not Tied to Testing</strong> &ndash; There&rsquo;s nothing about CoverShot that
 requires coverage collection to be initiated by tests. You can even use
 it to record coverage from your running application.</li>
 </ul>
 
 
-<p>To get started, you&#8217;ll need to install <code>covershot</code> and its dependencies.</p>
+<p>To get started, you&rsquo;ll need to install <code>covershot</code> and its dependencies.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -105,7 +105,7 @@ it to record coverage from your running application.</li>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>You&#8217;ll also need to install <code>jscoverage</code>, which is not an npm package.
+<p>You&rsquo;ll also need to install <code>jscoverage</code>, which is not an npm package.
 Please see <a href="http://siliconforks.com/jscoverage/">this</a> or
 <a href="https://github.com/visionmedia/node-jscoverage">this</a> for installation
 options.</p>
@@ -121,7 +121,7 @@ code using <code>jscoverage</code>.</p>
 <p>This creates a modified version of all the JavaScript files in the lib
 directory and its subdirectories, instrumented for coverage collection.</p>
 
-<p>Next, you&#8217;ll need to change the way you require the files you want to
+<p>Next, you&rsquo;ll need to change the way you require the files you want to
 collect coverage on.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -135,7 +135,7 @@ collect coverage on.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you&#8217;d like to collect some source code metrics too, run <code>jsmeter2</code></p>
+<p>If you&rsquo;d like to collect some source code metrics too, run <code>jsmeter2</code></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='console'><span class='line'><span class="gp">$</span>&gt; ./node_modules/node-jsmeter/bin/jsmeter.js -o ./covershot/jsmeter/ ./lib/
@@ -153,9 +153,9 @@ report.</p>
 <p>A static set of HTML pages will be generated in the covershot
 subdirectory of your current working directory.</p>
 
-<p>It&#8217;s important to realize that good test coverage does not guarantee
+<p>It&rsquo;s important to realize that good test coverage does not guarantee
 error-free code. You can still <a href="http://jasonrudolph.com/blog/testing-anti-patterns-how-to-fail-with-100-test-coverage/">fail with 100% test coverage</a>.
-It&#8217;s simply another tool in the toolbox for helping you evaluate the
+It&rsquo;s simply another tool in the toolbox for helping you evaluate the
 effectiveness of your tests. Please check it out and let us know how we
 can improve CoverShot.</p>
 ]]></content>
@@ -166,12 +166,12 @@ can improve CoverShot.</p>
     <link href="http://kunkle.org/blog/2012/08/14/tech-presentation-tip-3-mirror-displays/"/>
     <updated>2012-08-14T00:00:00-04:00</updated>
     <id>http://kunkle.org/blog/2012/08/14/tech-presentation-tip-3-mirror-displays</id>
-    <content type="html"><![CDATA[<p>This is the third in a series of posts extracted from my <a href="http://www.nearinfinity.com/techtalks/jeff_kunkle/2011/08/15/Presentation_Tips.html">Presentation Tips Video</a> from last year. You can <a href="http://youtu.be/8l6dmfXovto?t=5m54s">jump directly to this tip in the video</a> if you&#8217;d rather watch it than read it.</p>
+    <content type="html"><![CDATA[<p>This is the third in a series of posts extracted from my <a href="http://www.nearinfinity.com/techtalks/jeff_kunkle/2011/08/15/Presentation_Tips.html">Presentation Tips Video</a> from last year. You can <a href="http://youtu.be/8l6dmfXovto?t=5m54s">jump directly to this tip in the video</a> if you&rsquo;d rather watch it than read it.</p>
 
 <p>Most of the presentations I give, and receive, involve software
 development. More often than not this involves some amount of live
 coding by the presenter. As most developers seem to using Macs these
-days they&#8217;re often using Keynote for any slides in their talk.</p>
+days they&rsquo;re often using Keynote for any slides in their talk.</p>
 
 <p>Keynote has a really handy presenters view that will show the
 current slide, next slide, and timing information on your laptop display
@@ -179,21 +179,21 @@ while showing the presentation on the secondary display/projector.</p>
 
 <p><img src="http://kunkle.org/assets/tech_presentation_tip_3/presenter-view.png" title="Presenter View" alt="presenter-view" /></p>
 
-<p>Unfortunately, presenter view and live coding don&#8217;t work well together.
-If you&#8217;re using presenter view then your laptop and projector are
+<p>Unfortunately, presenter view and live coding don&rsquo;t work well together.
+If you&rsquo;re using presenter view then your laptop and projector are
 showing different images. If you want your audience to see your live
 coding you need to place your editor on the secondary display/projector.
-This means that while you&#8217;re typing you need to be looking at the
-projector&#8217;s display, not the one in front of you. I&#8217;ve never seen this
+This means that while you&rsquo;re typing you need to be looking at the
+projector&rsquo;s display, not the one in front of you. I&rsquo;ve never seen this
 work out well.</p>
 
 <p>No matter how easy you think it might be, typing while
-straining to look over your shoulder is distracting. It&#8217;s bound to be a
+straining to look over your shoulder is distracting. It&rsquo;s bound to be a
 comedy of typing errors and comments about how hard it is to type on
-your laptop while looking over your shoulder. So just don&#8217;t do it. If
+your laptop while looking over your shoulder. So just don&rsquo;t do it. If
 you plan to do any typing during your presentation then ditch
-the presenter view and mirror your screens. It&#8217;ll save you some stress
-and keep your audience from losing interest in the guy who can&#8217;t type.</p>
+the presenter view and mirror your screens. It&rsquo;ll save you some stress
+and keep your audience from losing interest in the guy who can&rsquo;t type.</p>
 ]]></content>
   </entry>
   
@@ -202,15 +202,15 @@ and keep your audience from losing interest in the guy who can&#8217;t type.</p>
     <link href="http://kunkle.org/blog/2012/08/06/tech-presentation-tip-2-no-apologies-or-caveats/"/>
     <updated>2012-08-06T00:00:00-04:00</updated>
     <id>http://kunkle.org/blog/2012/08/06/tech-presentation-tip-2-no-apologies-or-caveats</id>
-    <content type="html"><![CDATA[<p>This is the second in a series of posts extracted from my <a href="http://www.nearinfinity.com/techtalks/jeff_kunkle/2011/08/15/Presentation_Tips.html">Presentation Tips Video</a> from last year. You can <a href="http://youtu.be/8l6dmfXovto?t=12m51s">jump directly to this tip in the video</a> if you&#8217;d rather watch it than read it. While this tip is
-not particularly technical, it&#8217;s a big enough problem I encounter often
+    <content type="html"><![CDATA[<p>This is the second in a series of posts extracted from my <a href="http://www.nearinfinity.com/techtalks/jeff_kunkle/2011/08/15/Presentation_Tips.html">Presentation Tips Video</a> from last year. You can <a href="http://youtu.be/8l6dmfXovto?t=12m51s">jump directly to this tip in the video</a> if you&rsquo;d rather watch it than read it. While this tip is
+not particularly technical, it&rsquo;s a big enough problem I encounter often
 enough to mention it.</p>
 
 <p>One of the quickest ways to immediately turn your audience off is to begin
 the presentation with an apology or caveat. Consider the following
-statements from your audience&#8217;s perspective.</p>
+statements from your audience&rsquo;s perspective.</p>
 
-<blockquote><p>I didn&#8217;t have much time to prepare.</p></blockquote>
+<blockquote><p>I didn&rsquo;t have much time to prepare.</p></blockquote>
 
 <p>Why should your audience spend their valuable time listening to an
 underprepared presentation? Respect your audience by budgeting
@@ -218,37 +218,37 @@ sufficient prep time to create a compelling talk.</p>
 
 <blockquote><p>I hope this makes sense.</p></blockquote>
 
-<p>You should never present something you aren&#8217;t sure makes sense. Run your
-outline by a freind or colleague before ever starting to make sure it&#8217;s
-coherent and organized. It&#8217;s also a great idea to do a dry run or two
+<p>You should never present something you aren&rsquo;t sure makes sense. Run your
+outline by a freind or colleague before ever starting to make sure it&rsquo;s
+coherent and organized. It&rsquo;s also a great idea to do a dry run or two
 beforehand with someone you trust to give you honest feedback.</p>
 
 <blockquote><p>I just finished this presentation last night.</p></blockquote>
 
-<p>To your audience it sounds like you didn&#8217;t care enough about your topic
+<p>To your audience it sounds like you didn&rsquo;t care enough about your topic
 and their time to put in a serious effort. If I hear this I immediately
-expect a poor presentation and that&#8217;s normally what I get.</p>
+expect a poor presentation and that&rsquo;s normally what I get.</p>
 
 <blockquote><p>This is my first time presenting this.</p></blockquote>
 
-<p>Even if it is your first time with a new presentation, there&#8217;s little
-value in stating it. You&#8217;re only giving your audience a reason to tune
+<p>Even if it is your first time with a new presentation, there&rsquo;s little
+value in stating it. You&rsquo;re only giving your audience a reason to tune
 out rather than engage.</p>
 
-<blockquote><p>I&#8217;m not very good at presenting.</p></blockquote>
+<blockquote><p>I&rsquo;m not very good at presenting.</p></blockquote>
 
 <p>This is another one of those statements that can only hurt your
-presentation. If you&#8217;re nervous, people will generally understand,
-assuming they even notice. You don&#8217;t need to declare it.</p>
+presentation. If you&rsquo;re nervous, people will generally understand,
+assuming they even notice. You don&rsquo;t need to declare it.</p>
 
 <p>A good presentation involves a lot of things, but above all
 confidence. These and similar caveats are generally a symptom of a lack
 of confidence in your presentation or your ability to present it. If your
-audience senses a lack of confidence from you, they&#8217;ll lose confidence
+audience senses a lack of confidence from you, they&rsquo;ll lose confidence
 in the presentation too.</p>
 
 <p>The best way to combat a crisis of confidence is to prepare, prepare,
-and prepare. If you&#8217;re prepared, you&#8217;ll have no reason to apologize or
+and prepare. If you&rsquo;re prepared, you&rsquo;ll have no reason to apologize or
 caveat beforehand, and the confidence will take care of itself.</p>
 ]]></content>
   </entry>
@@ -260,25 +260,25 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <id>http://kunkle.org/blog/2012/07/26/tech-presentation-tip-1-avoid-screen-resolution-shock</id>
     <content type="html"><![CDATA[<p>This is the first in a series of posts extracted from my <a href="http://www.nearinfinity.com/techtalks/jeff_kunkle/2011/08/15/Presentation_Tips.html">Presentation Tips Video</a> from last year. There’s an endless supply of books, articles, blog posts, and videos to help you improve your presentations, but most of them focus on the organization and delivery aspects of presenting. These tips target some of the technical aspects surrounding your presentation, such as making sure you have the right adapter for your projector, preparing for screen-resolution changes, and a whole bunch more. Hopefully you can learn something from my observations and personal gaffes over the years.</p>
 
-<p>If you&#8217;re a developer, chances are you do most work with your screen resolution cranked up as high as it&#8217;ll go. As I write this, my pre-retina 15-inch MacBook Pro resolution is set at 1440x900. So what happens when you plug your laptop into a projector displaying at 1024x768?</p>
+<p>If you&rsquo;re a developer, chances are you do most work with your screen resolution cranked up as high as it&rsquo;ll go. As I write this, my pre-retina 15-inch MacBook Pro resolution is set at 1440x900. So what happens when you plug your laptop into a projector displaying at 1024x768?</p>
 
 <p><img src="http://kunkle.org/assets/tech_presentation_tip_1/hires.png" title="High Resolution Laptop" alt="hires" /></p>
 
 <p><img src="http://kunkle.org/assets/tech_presentation_tip_1/lowres.png" title="Low Resolution Projector" alt="lowres" /></p>
 
-<p>Suddenly everything that fit so nicely on your laptop screen has been zoomed in to the point where things are barely recognizable. And despite this predictable behavior, I continue to see &#8220;screen resolution shock&#8221; derail presentation after presentation as the presenter scrambles to rearrange windows and figure out how to operate with the reduced real estate.</p>
+<p>Suddenly everything that fit so nicely on your laptop screen has been zoomed in to the point where things are barely recognizable. And despite this predictable behavior, I continue to see &ldquo;screen resolution shock&rdquo; derail presentation after presentation as the presenter scrambles to rearrange windows and figure out how to operate with the reduced real estate.</p>
 
 <p>Consider these tips as you prepare for your next presentation.</p>
 
 <ol>
-<li>If you have access to the projector you&#8217;ll be using, try it ahead of time and find the best resolution.</li>
-<li>If you don&#8217;t have access to the projector, call ahead and ask about the available resolutions. Unfortunately, people don&#8217;t usually know.</li>
-<li>If you don&#8217;t know the resolution ahead of time, assume 1024x768.</li>
-<li>Practice your presentation at the resolution you expect from the projector, not at your laptop&#8217;s resolution.</li>
+<li>If you have access to the projector you&rsquo;ll be using, try it ahead of time and find the best resolution.</li>
+<li>If you don&rsquo;t have access to the projector, call ahead and ask about the available resolutions. Unfortunately, people don&rsquo;t usually know.</li>
+<li>If you don&rsquo;t know the resolution ahead of time, assume 1024x768.</li>
+<li>Practice your presentation at the resolution you expect from the projector, not at your laptop&rsquo;s resolution.</li>
 </ol>
 
 
-<p>Of these, tip number four is clearly the most important. If you don&#8217;t practice at the resolution you expect from the projector, you can count on screen resolution shock being a distraction for you and your audience.</p>
+<p>Of these, tip number four is clearly the most important. If you don&rsquo;t practice at the resolution you expect from the projector, you can count on screen resolution shock being a distraction for you and your audience.</p>
 ]]></content>
   </entry>
   
@@ -287,7 +287,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <link href="http://kunkle.org/blog/2012/07/12/introducing-db-meta-for-nodejs/"/>
     <updated>2012-07-12T00:00:00-04:00</updated>
     <id>http://kunkle.org/blog/2012/07/12/introducing-db-meta-for-nodejs</id>
-    <content type="html"><![CDATA[<p>If you&#8217;re using NodeJS and are in need of schema metadata from your relational database, you&#8217;re in luck. <a href="https://github.com/nearinfinity/node-db-meta">db-meta</a> provides an API to retrieve basic schema metadata from MySQL, PostgreSQL, and SQLite databases.</p>
+    <content type="html"><![CDATA[<p>If you&rsquo;re using NodeJS and are in need of schema metadata from your relational database, you&rsquo;re in luck. <a href="https://github.com/nearinfinity/node-db-meta">db-meta</a> provides an API to retrieve basic schema metadata from MySQL, PostgreSQL, and SQLite databases.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -336,7 +336,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you&#8217;re interested in learning more, check out the <a href="https://github.com/nearinfinity/node-db-meta">db-meta Github page</a> for additional information and API documentation.</p>
+<p>If you&rsquo;re interested in learning more, check out the <a href="https://github.com/nearinfinity/node-db-meta">db-meta Github page</a> for additional information and API documentation.</p>
 ]]></content>
   </entry>
   
@@ -354,7 +354,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <link href="http://kunkle.org/blog/2012/06/13/secret-sauce-of-nodejs-modules/"/>
     <updated>2012-06-13T00:00:00-04:00</updated>
     <id>http://kunkle.org/blog/2012/06/13/secret-sauce-of-nodejs-modules</id>
-    <content type="html"><![CDATA[<p>When I first starting learning about Node.js I read lots of blog posts and tutorials filled with examples. After all, there weren&#8217;t any published books or comprehensive guides at the time. With my primary JavaScript frame of reference being its use in the browser, one thing that always puzzled me early on is how Node could possibly prevent me from creating global variables. Consider the following contrived code example.</p>
+    <content type="html"><![CDATA[<p>When I first starting learning about Node.js I read lots of blog posts and tutorials filled with examples. After all, there weren&rsquo;t any published books or comprehensive guides at the time. With my primary JavaScript frame of reference being its use in the browser, one thing that always puzzled me early on is how Node could possibly prevent me from creating global variables. Consider the following contrived code example.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -373,11 +373,11 @@ caveat beforehand, and the confidence will take care of itself.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If the above code were run in a browser I would have created a global function named <code>sayHello</code> and attached a function named <code>greet</code> to a global <code>exports</code> object. But that isn&#8217;t what happens at all when using Node.</p>
+<p>If the above code were run in a browser I would have created a global function named <code>sayHello</code> and attached a function named <code>greet</code> to a global <code>exports</code> object. But that isn&rsquo;t what happens at all when using Node.</p>
 
-<p>After some digging I came to learn that Node uses the <a href="http://www.commonjs.org/">CommonJS</a> module pattern. Reading about CommonJS you&#8217;ll learn that there&#8217;s a magic <code>exports</code> variable available to your scripts, and anything attached to it is exposed to other code <code>require</code>&#8216;ing your script. That&#8217;s all well and good and I understood the concept, but it didn&#8217;t help me understand how it actually worked under the covers. How did it prevent functions like <code>sayHello</code> from becoming global and just where did that <code>exports</code> variable come from? So I resorted to digging through the Node source to find out what&#8217;s really going on.</p>
+<p>After some digging I came to learn that Node uses the <a href="http://www.commonjs.org/">CommonJS</a> module pattern. Reading about CommonJS you&rsquo;ll learn that there&rsquo;s a magic <code>exports</code> variable available to your scripts, and anything attached to it is exposed to other code <code>require</code>&lsquo;ing your script. That&rsquo;s all well and good and I understood the concept, but it didn&rsquo;t help me understand how it actually worked under the covers. How did it prevent functions like <code>sayHello</code> from becoming global and just where did that <code>exports</code> variable come from? So I resorted to digging through the Node source to find out what&rsquo;s really going on.</p>
 
-<p>Fortunately, it didn&#8217;t take long for me to stumble upon some code in <code>src/node.js</code>; It might have even been the first file I opened. On line 528 (Node version 0.6.18) you&#8217;ll find the chunk of code shown below. Start reading at the compile function near the bottom. The first two things <code>compile</code> does is get the source of your script and then wrap it. Notice the <code>NativeModule.wrap</code> function is actually wrapping your entire source file in an anonymous function expression, exposing <code>exports</code>, <code>require</code>, <code>module</code>, <code>__filename</code>, and <code>__dirname</code> variables to your code. The wrapped source is then invoked in the <code>compile</code> function.</p>
+<p>Fortunately, it didn&rsquo;t take long for me to stumble upon some code in <code>src/node.js</code>; It might have even been the first file I opened. On line 528 (Node version 0.6.18) you&rsquo;ll find the chunk of code shown below. Start reading at the compile function near the bottom. The first two things <code>compile</code> does is get the source of your script and then wrap it. Notice the <code>NativeModule.wrap</code> function is actually wrapping your entire source file in an anonymous function expression, exposing <code>exports</code>, <code>require</code>, <code>module</code>, <code>__filename</code>, and <code>__dirname</code> variables to your code. The wrapped source is then invoked in the <code>compile</code> function.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -418,7 +418,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The important part to take away from this is that Node does not run exactly what you&#8217;ve written in your source file; it runs a wrapped version of your source. This wrapped function expression is the tactic used to prevent your top level functions and variables from becoming global. It&#8217;s also how your code gets access to the magic <code>exports</code> variable, among others.</p>
+<p>The important part to take away from this is that Node does not run exactly what you&rsquo;ve written in your source file; it runs a wrapped version of your source. This wrapped function expression is the tactic used to prevent your top level functions and variables from becoming global. It&rsquo;s also how your code gets access to the magic <code>exports</code> variable, among others.</p>
 ]]></content>
   </entry>
   
@@ -427,15 +427,15 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <link href="http://kunkle.org/blog/2012/04/13/nodejs-basics-explained/"/>
     <updated>2012-04-13T10:02:42-04:00</updated>
     <id>http://kunkle.org/blog/2012/04/13/nodejs-basics-explained</id>
-    <content type="html"><![CDATA[<p>Rising from non-existence three short years ago, Node.js is already attracting the accolades and disdain enjoyed and endured by the Ruby and Rails community just a short time ago. It overtook Rails as the most popular Github repository last November (now superseded by Twitter&#8217;s Bootstrap project) and was selected by InfoWorld for the Technology of the Year Award in 2012.</p>
+    <content type="html"><![CDATA[<p>Rising from non-existence three short years ago, Node.js is already attracting the accolades and disdain enjoyed and endured by the Ruby and Rails community just a short time ago. It overtook Rails as the most popular Github repository last November (now superseded by Twitter&rsquo;s Bootstrap project) and was selected by InfoWorld for the Technology of the Year Award in 2012.</p>
 
-<p>If you&#8217;ve never used Node.js before or have limited experience, it may not be obvious why people are so excited about it. This post will attempt to explain the basic theory central to Node&#8217;s approach, arming you with a better frame of reference for the debates you&#8217;ll undoubtedly encounter.</p>
+<p>If you&rsquo;ve never used Node.js before or have limited experience, it may not be obvious why people are so excited about it. This post will attempt to explain the basic theory central to Node&rsquo;s approach, arming you with a better frame of reference for the debates you&rsquo;ll undoubtedly encounter.</p>
 
-<p>Please note that this post won&#8217;t make much sense without a very basic familiarity with Node. Consider checking out the <a href="http://nodejs.org">Node.js website</a> and reading a few articles on Node first if that&#8217;s the case.</p>
+<p>Please note that this post won&rsquo;t make much sense without a very basic familiarity with Node. Consider checking out the <a href="http://nodejs.org">Node.js website</a> and reading a few articles on Node first if that&rsquo;s the case.</p>
 
 <h1>I/O Latency</h1>
 
-<p>The core premise behind Node&#8217;s approach is that I/O operations are slow compared to the computation done in your application. Consider the table below, taken from Ryan Dahl&#8217;s 2008.11.08 presentation on Node.js. It shows various I/O operations on the left and the number of CPU cycles it takes to perform them. Don&#8217;t focus on the actual numbers, but on the differences in magnitude for the  operations.</p>
+<p>The core premise behind Node&rsquo;s approach is that I/O operations are slow compared to the computation done in your application. Consider the table below, taken from Ryan Dahl&rsquo;s 2008.11.08 presentation on Node.js. It shows various I/O operations on the left and the number of CPU cycles it takes to perform them. Don&rsquo;t focus on the actual numbers, but on the differences in magnitude for the  operations.</p>
 
 <table>
     <tr><th>Operation</th><th>CPU cycles</th></tr>
@@ -447,13 +447,13 @@ caveat beforehand, and the confidence will take care of itself.</p>
 </table>
 
 
-<p>From the table you can see that disk and network access times dwarf things like memory access or L1 and L2 cache access. The chart below makes the magnitude differences even more obvious. The L1, L2, and RAM access times are so much smaller than disk and network access that their bars don&#8217;t even appear on the graph.</p>
+<p>From the table you can see that disk and network access times dwarf things like memory access or L1 and L2 cache access. The chart below makes the magnitude differences even more obvious. The L1, L2, and RAM access times are so much smaller than disk and network access that their bars don&rsquo;t even appear on the graph.</p>
 
 <p><img src="http://kunkle.org/assets/latency-bar-graph.png" title="I/O Latency" alt="i/o magnitudes" /></p>
 
 <h1>Waiting</h1>
 
-<p>If you can buy that I/O operations are often orders of magnitude slower than the computation you&#8217;re performing in your app, then what is your app doing during the I/O operations? It&#8217;s waiting! It&#8217;s execution is literally blocked until the I/O operation completes.</p>
+<p>If you can buy that I/O operations are often orders of magnitude slower than the computation you&rsquo;re performing in your app, then what is your app doing during the I/O operations? It&rsquo;s waiting! It&rsquo;s execution is literally blocked until the I/O operation completes.</p>
 
 <p>Consider the following fictitious web request. The slim green bars represent the time your application devotes to processing and the gray bars represent the time spent waiting for I/O to complete. The example starts off with some logic to process the request.</p>
 
@@ -473,11 +473,11 @@ caveat beforehand, and the confidence will take care of itself.</p>
 
 <h1>Scaling</h1>
 
-<p>Before we get into the approach Node.js takes to scaling, let&#8217;s consider how our made-up web request would be scaled with other models.</p>
+<p>Before we get into the approach Node.js takes to scaling, let&rsquo;s consider how our made-up web request would be scaled with other models.</p>
 
 <h2>Scaling with Threads</h2>
 
-<p>Using a thread based model, you&#8217;d scale the above example by creating multiple threads, one for each concurrent connection. The diagram below depicts a threaded model capable of handling four concurrent connections.</p>
+<p>Using a thread based model, you&rsquo;d scale the above example by creating multiple threads, one for each concurrent connection. The diagram below depicts a threaded model capable of handling four concurrent connections.</p>
 
 <p><img src="http://kunkle.org/assets/scaling-threads.png" title="Scaling with Threads" alt="scaling with threads" /></p>
 
@@ -491,7 +491,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
 
 <h2>Scaling with Node.js</h2>
 
-<p>Since the code you write for Node.js executes in a single thread within a single process, it takes a different approach to scaling. It extracts the &#8220;I/O waiting&#8221; by using an internal thread pool or leveraging asynchronous I/O APIs of the host operating system to free your thread for processing other connections. Instead of your code blocking on I/O operations, it&#8217;s freed to process other connections. When the I/O operation completes, your code is called back to handle the results.</p>
+<p>Since the code you write for Node.js executes in a single thread within a single process, it takes a different approach to scaling. It extracts the &ldquo;I/O waiting&rdquo; by using an internal thread pool or leveraging asynchronous I/O APIs of the host operating system to free your thread for processing other connections. Instead of your code blocking on I/O operations, it&rsquo;s freed to process other connections. When the I/O operation completes, your code is called back to handle the results.</p>
 
 <p><img src="http://kunkle.org/assets/scaling-event-loop.png" title="Scaling with Node.js" alt="scaling with event loop" /></p>
 
@@ -499,7 +499,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
 
 <h1>Conclusion</h1>
 
-<p>The success of Node.js relies on the premise that time spent waiting for I/O far outweighs the time spent executing application logic. While that&#8217;s true of many of todays&#8217; web/network-based applications, it doesn&#8217;t always apply. If your application is more CPU-intensive with minimal I/O by comparison, then Node.js is probably not the right platform. As my father used to say, don&#8217;t try to fit a square peg in a round hole.</p>
+<p>The success of Node.js relies on the premise that time spent waiting for I/O far outweighs the time spent executing application logic. While that&rsquo;s true of many of todays&#8217; web/network-based applications, it doesn&rsquo;t always apply. If your application is more CPU-intensive with minimal I/O by comparison, then Node.js is probably not the right platform. As my father used to say, don&rsquo;t try to fit a square peg in a round hole.</p>
 ]]></content>
   </entry>
   
@@ -508,9 +508,9 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <link href="http://kunkle.org/blog/2012/01/26/automatic-code-coverage-switch/"/>
     <updated>2012-01-26T15:22:16-05:00</updated>
     <id>http://kunkle.org/blog/2012/01/26/automatic-code-coverage-switch</id>
-    <content type="html"><![CDATA[<p> If you&#8217;ve used <a href="http://nodejs.org">Node.js</a> lately you&#8217;ve likely run across <a href="http://vowsjs.org/">Vows</a>, the asynchronous behavior driven development test framework for Node. Vows does a really nice job of forcing you to separate your setup logic from your assertions, but that&#8217;s not what this post is about.</p>
+    <content type="html"><![CDATA[<p> If you&rsquo;ve used <a href="http://nodejs.org">Node.js</a> lately you&rsquo;ve likely run across <a href="http://vowsjs.org/">Vows</a>, the asynchronous behavior driven development test framework for Node. Vows does a really nice job of forcing you to separate your setup logic from your assertions, but that&rsquo;s not what this post is about.</p>
 
-<p>Vows can generate test coverage reports with its &#8211;cover-plain, &#8211;cover-html, and &#8211;cover-json options. Unfortunately, creating code coverage metrics isn&#8217;t as straightforward as simply including these options in your call to vows. You need to</p>
+<p>Vows can generate test coverage reports with its &mdash;cover-plain, &mdash;cover-html, and &mdash;cover-json options. Unfortunately, creating code coverage metrics isn&rsquo;t as straightforward as simply including these options in your call to vows. You need to</p>
 
 <ol>
 <li>Pre-instrument your code using <a href="https://github.com/visionmedia/node-jscoverage">node-jscoverage</a>.</li>
@@ -518,7 +518,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
 </ol>
 
 
-<p>The first prerequisite is fairly easy to satisfy, although you need to remember to re-run node-jscoverage any time you change the source files you&#8217;re interested in covering. Setting up a script using something like <a href="https://github.com/balupton/watchr">watchr</a> to re-instrument your files if anything changes might be a good option. Anyway, simply executing the following (assuming you&#8217;ve installed node-jscoverage and added it to your path) from the root of your node project will create the instrumented versions of the files in your lib directory:</p>
+<p>The first prerequisite is fairly easy to satisfy, although you need to remember to re-run node-jscoverage any time you change the source files you&rsquo;re interested in covering. Setting up a script using something like <a href="https://github.com/balupton/watchr">watchr</a> to re-instrument your files if anything changes might be a good option. Anyway, simply executing the following (assuming you&rsquo;ve installed node-jscoverage and added it to your path) from the root of your node project will create the instrumented versions of the files in your lib directory:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>node-jscoverage lib lib-cov
@@ -589,7 +589,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>In essence, the script checks the process arguments to see if one of the vows &#8211;cover-* arguments were passed and changes its require method to substitute /lib-cov for any /lib references. If none of the coverage arguments are detected it simply requires the file as usual. Since your files under test normally use relative references to other files in your lib directory, they get covered too. Check out the example below to see how you would use the script in a test.</p>
+<p>In essence, the script checks the process arguments to see if one of the vows &mdash;cover-* arguments were passed and changes its require method to substitute /lib-cov for any /lib references. If none of the coverage arguments are detected it simply requires the file as usual. Since your files under test normally use relative references to other files in your lib directory, they get covered too. Check out the example below to see how you would use the script in a test.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -619,9 +619,9 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <link href="http://kunkle.org/blog/2012/01/12/parsing-pcap-files-in-nodejs-w/"/>
     <updated>2012-01-12T08:00:00-05:00</updated>
     <id>http://kunkle.org/blog/2012/01/12/parsing-pcap-files-in-nodejs-w</id>
-    <content type="html"><![CDATA[<p>On my current project we&#8217;ve been using <a href="http://nodejs.org">Node.js</a> for an app that does a lot of packet capture and processing. In the past we used <a href="https://github.com/mranney/node_pcap">node-pcap</a> for packet capture but were looking for an easier way to simply parse raw pcap files. It turns out the <a href="http://wiki.wireshark.org/Development/LibpcapFileFormat">pcap file format</a> is pretty simple as was writing a node module to parse it.</p>
+    <content type="html"><![CDATA[<p>On my current project we&rsquo;ve been using <a href="http://nodejs.org">Node.js</a> for an app that does a lot of packet capture and processing. In the past we used <a href="https://github.com/mranney/node_pcap">node-pcap</a> for packet capture but were looking for an easier way to simply parse raw pcap files. It turns out the <a href="http://wiki.wireshark.org/Development/LibpcapFileFormat">pcap file format</a> is pretty simple as was writing a node module to parse it.</p>
 
-<p>The module, called <a href="https://github.com/nearinfinity/node-pcap-parser">pcap-parser</a>, can be used to parse any pcap file or readable pcap stream, such as the piped output of <a href="http://www.tcpdump.org/">tcpdump</a>. As packets are parsed, pcap-parser emits relevant events to which your node program can listen. It&#8217;s a really simple way to process a theoretically infinite stream of pcap data. The code below shows a basic example of it in action. Please check out the <a href="https://github.com/nearinfinity/node-pcap-parser">project page</a> for more details.</p>
+<p>The module, called <a href="https://github.com/nearinfinity/node-pcap-parser">pcap-parser</a>, can be used to parse any pcap file or readable pcap stream, such as the piped output of <a href="http://www.tcpdump.org/">tcpdump</a>. As packets are parsed, pcap-parser emits relevant events to which your node program can listen. It&rsquo;s a really simple way to process a theoretically infinite stream of pcap data. The code below shows a basic example of it in action. Please check out the <a href="https://github.com/nearinfinity/node-pcap-parser">project page</a> for more details.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -653,7 +653,7 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <id>http://kunkle.org/blog/2011/08/22/rails-3-performance-monitoring</id>
     <content type="html"><![CDATA[<p>System Metrics is a new Rails 3 Engine providing a clean web interface to the performance metrics instrumented with <code>ActiveSupport::Notifications</code>. It will collect and display the notifications baked into Rails and any additional custom ones you add using <code>ActiveSupport::Notification#instrument</code>.</p>
 
-<p>System Metrics is not intended to be a replacement for performance monitoring solutions such as New Relic. However, it is especially handy for quickly identifying performance problems in a development environment. It&#8217;s also a great alternative for private networks disconnected from the Internet.</p>
+<p>System Metrics is not intended to be a replacement for performance monitoring solutions such as New Relic. However, it is especially handy for quickly identifying performance problems in a development environment. It&rsquo;s also a great alternative for private networks disconnected from the Internet.</p>
 
 <p>You can find more information about System Metrics on the <a href="http://nearinfinity.github.com/system-metrics">System Metrics site</a>. Please kick the tires and let us know what you think.</p>
 
@@ -666,29 +666,29 @@ caveat beforehand, and the confidence will take care of itself.</p>
     <link href="http://kunkle.org/blog/2011/05/13/are-you-really-done/"/>
     <updated>2011-05-13T21:19:22-04:00</updated>
     <id>http://kunkle.org/blog/2011/05/13/are-you-really-done</id>
-    <content type="html"><![CDATA[<p>People often have a hard time determining if they&#8217;re done with a
-software development task. It&#8217;s a great idea to sit down with your team
-and together decide what you&#8217;re going to consider as criteria for
-declaring a task done. If you haven&#8217;t done that yet, here&#8217;s one
-question you can ask yourself to help decide if you&#8217;re done.</p>
+    <content type="html"><![CDATA[<p>People often have a hard time determining if they&rsquo;re done with a
+software development task. It&rsquo;s a great idea to sit down with your team
+and together decide what you&rsquo;re going to consider as criteria for
+declaring a task done. If you haven&rsquo;t done that yet, here&rsquo;s one
+question you can ask yourself to help decide if you&rsquo;re done.</p>
 
-<blockquote><p>Is there any reason I&#8217;ll need to think about this code again in the
+<blockquote><p>Is there any reason I&rsquo;ll need to think about this code again in the
 near future?</p></blockquote>
 
-<p>If you didn&#8217;t quite implement all the unit tests you think you should
-have, the answer is yes and <strong>you&#8217;re not done</strong>. If you cut a corner or
+<p>If you didn&rsquo;t quite implement all the unit tests you think you should
+have, the answer is yes and <strong>you&rsquo;re not done</strong>. If you cut a corner or
 two to squeeze it in before the end of the iteration, the answer is yes
-and <strong>you&#8217;re not done</strong>. If you&#8217;re uncomfortable with the implementation
-and would like to refactor it, the answer is yes and <strong>you&#8217;re not done</strong>.
+and <strong>you&rsquo;re not done</strong>. If you&rsquo;re uncomfortable with the implementation
+and would like to refactor it, the answer is yes and <strong>you&rsquo;re not done</strong>.
 If there are a few details on the UI you left out in the interest of
-time, the answer is yes and <strong>you&#8217;re not done</strong>.</p>
+time, the answer is yes and <strong>you&rsquo;re not done</strong>.</p>
 
-<p>Too many times I&#8217;ve seen people close out a task only to revisit it the
+<p>Too many times I&rsquo;ve seen people close out a task only to revisit it the
 next week to polish up some loose ends, write a few more tests,
-refactor a confusing piece, etc. Don&#8217;t do it.</p>
+refactor a confusing piece, etc. Don&rsquo;t do it.</p>
 
 <p>Software development is hard enough without having to keep mental notes of
-all the needed tweaks and adjustments to things you&#8217;ve already <em>done</em>.
+all the needed tweaks and adjustments to things you&rsquo;ve already <em>done</em>.
 Your goal should be to knock out a task so totally and completely that
 you can get it out of your brain and focus on the next one. Doing so
 will do wonders for your sense of accomplishment.</p>
@@ -700,7 +700,7 @@ will do wonders for your sense of accomplishment.</p>
     <link href="http://kunkle.org/blog/2011/02/07/ruby-default-arguments-and-nil/"/>
     <updated>2011-02-07T09:00:00-05:00</updated>
     <id>http://kunkle.org/blog/2011/02/07/ruby-default-arguments-and-nil</id>
-    <content type="html"><![CDATA[<p> Ruby&#8217;s default arguments are a really handy language feature that I recently discovered aren&#8217;t as handy as I once thought. I was trying to track down an error I was getting in the following snippet of code in my ActiveRecord model object:</p>
+    <content type="html"><![CDATA[<p> Ruby&rsquo;s default arguments are a really handy language feature that I recently discovered aren&rsquo;t as handy as I once thought. I was trying to track down an error I was getting in the following snippet of code in my ActiveRecord model object:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -724,9 +724,9 @@ will do wonders for your sense of accomplishment.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I stared at this for a while until it dawned on me that explicitly passing &#8216;nil&#8217; to as_json might not result in options being set to the default empty hash, and indeed it does not. I suppose it&#8217;s technically correct, since nil is an instance of NilClass in Ruby and not some special value as it is in many other languages. It&#8217;s just not what I was expecting and not what I want. For all the books, blog posts, and tutorials I&#8217;ve read, you&#8217;d think I would have picked up on this somewhere along the way.</p>
+<p>I stared at this for a while until it dawned on me that explicitly passing &lsquo;nil&rsquo; to as_json might not result in options being set to the default empty hash, and indeed it does not. I suppose it&rsquo;s technically correct, since nil is an instance of NilClass in Ruby and not some special value as it is in many other languages. It&rsquo;s just not what I was expecting and not what I want. For all the books, blog posts, and tutorials I&rsquo;ve read, you&rsquo;d think I would have picked up on this somewhere along the way.</p>
 
-<p>Curiously though, can anyone think of a valid use case for not assigning the default value to a nil argument? I&#8217;m sure there are some, but they&#8217;re not coming to mind.</p>
+<p>Curiously though, can anyone think of a valid use case for not assigning the default value to a nil argument? I&rsquo;m sure there are some, but they&rsquo;re not coming to mind.</p>
 ]]></content>
   </entry>
   
@@ -735,7 +735,7 @@ will do wonders for your sense of accomplishment.</p>
     <link href="http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht/"/>
     <updated>2010-12-14T08:31:55-05:00</updated>
     <id>http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht</id>
-    <content type="html"><![CDATA[<p>Ever since hearing about <a href="http://codebutler.com/firesheep">Firesheep</a> I&#8217;ve wanted a Safari extension similar to the <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a> extension for Firefox. Frankly, I was puzzled that one didn&#8217;t already exist, so I set out to write it. The result is <a href="http://www.nearinfinity.com/home/opensource/ssl-everywhere.html">SSL Everywhere</a>. The journey is this blog post.</p>
+    <content type="html"><![CDATA[<p>Ever since hearing about <a href="http://codebutler.com/firesheep">Firesheep</a> I&rsquo;ve wanted a Safari extension similar to the <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a> extension for Firefox. Frankly, I was puzzled that one didn&rsquo;t already exist, so I set out to write it. The result is <a href="http://www.nearinfinity.com/home/opensource/ssl-everywhere.html">SSL Everywhere</a>. The journey is this blog post.</p>
 
 <p>I started the project as an effort to protect myself and others from Firesheep when using Safari on an open public wireless network, much like those found in coffee shops, hotels, and airports everywhere. Firesheep works by <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Session_hijacking">hijacking your session</a>, which is basically a way of stealing your active login without needing your username or password.</p>
 
@@ -753,25 +753,25 @@ will do wonders for your sense of accomplishment.</p>
 </ul>
 
 
-<p>It wasn&#8217;t until I started to tackle each of the list items that I realized just how limited Safari&#8217;s extension API is, and ultimately that <strong>one could never build a foolproof extension to protect Safari users from session hijacking attacks</strong>.</p>
+<p>It wasn&rsquo;t until I started to tackle each of the list items that I realized just how limited Safari&rsquo;s extension API is, and ultimately that <strong>one could never build a foolproof extension to protect Safari users from session hijacking attacks</strong>.</p>
 
 <h1>Lessons Learned</h1>
 
-<p>If you&#8217;ve spent any significant time writing Safari extensions, you may already be aware of the many restrictions and challenges I wrestled with for hours. Much of what I learned was trial and error, despite <a href="http://developer.apple.com/library/safari/#documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html">well written documentation from Apple</a>. While the documentation does a fair job of describing many of the things you can do with an extension, it doesn&#8217;t provide as much detail on what you <em>can&#8217;t</em> do. That&#8217;s what you&#8217;ll find below.</p>
+<p>If you&rsquo;ve spent any significant time writing Safari extensions, you may already be aware of the many restrictions and challenges I wrestled with for hours. Much of what I learned was trial and error, despite <a href="http://developer.apple.com/library/safari/#documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html">well written documentation from Apple</a>. While the documentation does a fair job of describing many of the things you can do with an extension, it doesn&rsquo;t provide as much detail on what you <em>can&rsquo;t</em> do. That&rsquo;s what you&rsquo;ll find below.</p>
 
 <h2>No Access to Raw Cookies</h2>
 
-<p>The key to avoiding a session hijacking attempt is making sure the attacker can&#8217;t access the session cookie, or cookies, your browser sends on each request. This can obviously be done by making sure all requests take place over an SSL connection. Unfortunately, you can&#8217;t guarantee this won&#8217;t happen since Safari extensions have no opportunity to intercept webpage requests before they occur. A user could easily type http://twitter.com into their address bar and SSL Everywhere couldn&#8217;t stop the request.</p>
+<p>The key to avoiding a session hijacking attempt is making sure the attacker can&rsquo;t access the session cookie, or cookies, your browser sends on each request. This can obviously be done by making sure all requests take place over an SSL connection. Unfortunately, you can&rsquo;t guarantee this won&rsquo;t happen since Safari extensions have no opportunity to intercept webpage requests before they occur. A user could easily type <a href="http://twitter.com">http://twitter.com</a> into their address bar and SSL Everywhere couldn&rsquo;t stop the request.</p>
 
-<p>The other option I pursued was having SSL Everywhere attempt to mark session cookies as secure since the browser will not send cookies marked as secure over a non-SSL connection. However, a Safari extension has no additional ability to manipulate cookies than normal JavaScript running on a page, meaning there is no way to read a cookie&#8217;s path or expiration date for example. So, there&#8217;s no way for the SSL Everywhere extension to simply mark a cookie as secure without having to guess at, or omit, other cookie information which may be important to the operation of the website.</p>
+<p>The other option I pursued was having SSL Everywhere attempt to mark session cookies as secure since the browser will not send cookies marked as secure over a non-SSL connection. However, a Safari extension has no additional ability to manipulate cookies than normal JavaScript running on a page, meaning there is no way to read a cookie&rsquo;s path or expiration date for example. So, there&rsquo;s no way for the SSL Everywhere extension to simply mark a cookie as secure without having to guess at, or omit, other cookie information which may be important to the operation of the website.</p>
 
 <h2>No beforeload for favicons, Ajax Calls, or Stylesheet References</h2>
 
 <p>Apple was responsible for adding the beforeload event to Webkit. This gives scripts (and extensions) the ability to decide whether an external resource should be loaded or not. As stated in the Safari Extensions Development Guide,</p>
 
-<blockquote><p>Safari 5.0 and later (and other Webkit-based browsers) generates a &#8220;beforeload&#8221; event before loading each sub-resource belonging to a webpage. The &#8220;beforeload&#8221; event is generated before loading every script, iframe, image, or style sheet specified in the webpage, for example.</p></blockquote>
+<blockquote><p>Safari 5.0 and later (and other Webkit-based browsers) generates a &ldquo;beforeload&rdquo; event before loading each sub-resource belonging to a webpage. The &ldquo;beforeload&rdquo; event is generated before loading every script, iframe, image, or style sheet specified in the webpage, for example.</p></blockquote>
 
-<p>I was thrilled after reading those two sentences because it was exactly what I needed. That is, until I discovered there&#8217;s no beforeload event fired when the browser requests a website&#8217;s favicon, makes an Ajax request, or loads an image reference defined in a stylesheet. This leaves a loophole where I can&#8217;t stop a non-secure favicon reference, Ajax call, or CSS image reference from exposing the session cookies I can&#8217;t properly mark as secure.</p>
+<p>I was thrilled after reading those two sentences because it was exactly what I needed. That is, until I discovered there&rsquo;s no beforeload event fired when the browser requests a website&rsquo;s favicon, makes an Ajax request, or loads an image reference defined in a stylesheet. This leaves a loophole where I can&rsquo;t stop a non-secure favicon reference, Ajax call, or CSS image reference from exposing the session cookies I can&rsquo;t properly mark as secure.</p>
 
 <h2>src Attribute Can Not be Changed in beforeload Event Handlers</h2>
 
@@ -779,8 +779,8 @@ will do wonders for your sense of accomplishment.</p>
 
 <ol>
 <li>inspect the source URL being requested</li>
-<li>rewrite the source URL to a secure https: version if necessary</li>
-<li>replace the resource&#8217;s insecure reference with the secure https: URL</li>
+<li>rewrite the source URL to a secure <a href="https:">https:</a> version if necessary</li>
+<li>replace the resource&rsquo;s insecure reference with the secure <a href="https:">https:</a> URL</li>
 <li>allow the loading of the resource to proceed with the new, secure URL</li>
 </ol>
 
@@ -789,29 +789,29 @@ will do wonders for your sense of accomplishment.</p>
 
 <h2>beforeload != before request</h2>
 
-<p>It turns out that all the effort described above to leverage the beforeload event was futile. Preventing a resource from loading, as described in Apple&#8217;s example of <a href="http://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/MessagesandProxies/MessagesandProxies.html#//apple_ref/doc/uid/TP40009977-CH14-SW9">blocking unwanted content</a>, stops it from being inserted into the DOM, but does not prevent it from being requested by the browser anyway.</p>
+<p>It turns out that all the effort described above to leverage the beforeload event was futile. Preventing a resource from loading, as described in Apple&rsquo;s example of <a href="http://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/MessagesandProxies/MessagesandProxies.html#//apple_ref/doc/uid/TP40009977-CH14-SW9">blocking unwanted content</a>, stops it from being inserted into the DOM, but does not prevent it from being requested by the browser anyway.</p>
 
-<p>Apple&#8217;s example documentation states</p>
+<p>Apple&rsquo;s example documentation states</p>
 
-<blockquote><p>If your script responds to a &#8220;beforeload&#8221; event by calling event.preventDefault(), the pending sub-resource is not loaded. This is a useful technique for blocking ads&#8230;</p></blockquote>
+<blockquote><p>If your script responds to a &ldquo;beforeload&rdquo; event by calling event.preventDefault(), the pending sub-resource is not loaded. This is a useful technique for blocking ads&hellip;</p></blockquote>
 
-<p>Should I have really expected that &#8220;the pending sub-resource is not loaded&#8221; doesn&#8217;t imply that it&#8217;s not requested? Perhaps I wasn&#8217;t sharp enough to catch that nuance, but once again the cookies are exposed.</p>
+<p>Should I have really expected that &ldquo;the pending sub-resource is not loaded&rdquo; doesn&rsquo;t imply that it&rsquo;s not requested? Perhaps I wasn&rsquo;t sharp enough to catch that nuance, but once again the cookies are exposed.</p>
 
 <h2>Host Page Prototypes Can Not be Changed</h2>
 
-<p>When I discovered the beforeload event doesn&#8217;t fire on Ajax requests, I decided to try to override the XMLHttpRequest <code>open</code> method and rewrite any insecure URLs to a secure version before yielding to the original <code>open</code> implementation. What I found was that you can&#8217;t modify the prototypes of the page your start or end scripts are being injected into.</p>
+<p>When I discovered the beforeload event doesn&rsquo;t fire on Ajax requests, I decided to try to override the XMLHttpRequest <code>open</code> method and rewrite any insecure URLs to a secure version before yielding to the original <code>open</code> implementation. What I found was that you can&rsquo;t modify the prototypes of the page your start or end scripts are being injected into.</p>
 
-<p>I suspect this has something to do with start and end scripts being secluded in their own separate, and randomly named, namespace. Changing around object prototypes never resulted in any errors, it just didn&#8217;t change the prototypes of the host page and therefore couldn&#8217;t change the XMLHttpRequest object. Again, another point of exposure for the precious cookies.</p>
+<p>I suspect this has something to do with start and end scripts being secluded in their own separate, and randomly named, namespace. Changing around object prototypes never resulted in any errors, it just didn&rsquo;t change the prototypes of the host page and therefore couldn&rsquo;t change the XMLHttpRequest object. Again, another point of exposure for the precious cookies.</p>
 
 <h1>Status of SSL Everywhere</h1>
 
-<p>If you&#8217;ve read this far it should be obvious that SSL Everywhere cannot guarantee protection against session hijacking attacks, including those from Firesheep. However, it does enhance security by automatically redirecting you to secure versions of many websites and rewriting insecure links to their SSL-encrypted equivalents. If you must use Safari to access popular websites when connected to an open WiFi network, you&#8217;re probably better off doing it with SSL Everywhere.</p>
+<p>If you&rsquo;ve read this far it should be obvious that SSL Everywhere cannot guarantee protection against session hijacking attacks, including those from Firesheep. However, it does enhance security by automatically redirecting you to secure versions of many websites and rewriting insecure links to their SSL-encrypted equivalents. If you must use Safari to access popular websites when connected to an open WiFi network, you&rsquo;re probably better off doing it with SSL Everywhere.</p>
 
-<p>We don&#8217;t offer a pre-built version of the extension for easy installation into Safari because we don&#8217;t want people to casually install it and forget that it&#8217;s not completely secure for all sites. If people find it valuable nonetheless, then we may consider creating the extension bundle in the future.</p>
+<p>We don&rsquo;t offer a pre-built version of the extension for easy installation into Safari because we don&rsquo;t want people to casually install it and forget that it&rsquo;s not completely secure for all sites. If people find it valuable nonetheless, then we may consider creating the extension bundle in the future.</p>
 
 <h1>Try It!</h1>
 
-<p>If you&#8217;d like to try SSL Everywhere you can find the <a href="https://github.com/nearinfinity/ssl-everywhere.safariextension">source code on Github</a>. It&#8217;s open source software licensed under the GPL version 2 license, primarily because it borrows code from <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a>. If you can come up with solutions to any of the problems I encountered, please let me know!</p>
+<p>If you&rsquo;d like to try SSL Everywhere you can find the <a href="https://github.com/nearinfinity/ssl-everywhere.safariextension">source code on Github</a>. It&rsquo;s open source software licensed under the GPL version 2 license, primarily because it borrows code from <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a>. If you can come up with solutions to any of the problems I encountered, please let me know!</p>
 ]]></content>
   </entry>
   
@@ -837,10 +837,10 @@ will do wonders for your sense of accomplishment.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I love how easy it is to specify an attachment, but I don&#8217;t like having to specify the :url and :path on all attachments for two reasons:</p>
+<p>I love how easy it is to specify an attachment, but I don&rsquo;t like having to specify the :url and :path on all attachments for two reasons:</p>
 
 <ol>
-<li>It&#8217;s not <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>. With the <a href="https://github.com/thoughtbot/paperclip/wiki/Interpolations">Paperclip interpolations</a> I&#8217;m using, the :url and :path are never going to change within an environment no matter how many attachments I have across all my models.</li>
+<li>It&rsquo;s not <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>. With the <a href="https://github.com/thoughtbot/paperclip/wiki/Interpolations">Paperclip interpolations</a> I&rsquo;m using, the :url and :path are never going to change within an environment no matter how many attachments I have across all my models.</li>
 <li>Between environments I do need to change the path. In development I keep the attachments in :rails_root/assets but in production I want them somewhere else.</li>
 </ol>
 
@@ -864,7 +864,7 @@ will do wonders for your sense of accomplishment.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Adding those defaults in your environment configuration files means you can keep your models DRY and free of any ugly code used to change options depending on the environment. Isn&#8217;t this nicer?</p>
+<p>Adding those defaults in your environment configuration files means you can keep your models DRY and free of any ugly code used to change options depending on the environment. Isn&rsquo;t this nicer?</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -884,13 +884,13 @@ will do wonders for your sense of accomplishment.</p>
     <link href="http://kunkle.org/blog/2010/11/15/conferences-are-not-for-learni/"/>
     <updated>2010-11-15T09:45:50-05:00</updated>
     <id>http://kunkle.org/blog/2010/11/15/conferences-are-not-for-learni</id>
-    <content type="html"><![CDATA[<p> Near Infinity has the <a href="http://www.nearinfinity.com/home/currentopenings.html" title="Awesome Training Program">most generous training program</a> I&#8217;ve heard of among our competitors, and certainly rivals the best in the industry. Colleagues occasionally ask me for opinions about a conference or training course they&#8217;re considering. My stock answer for such inquiries has always been to &#8220;attend a good training class for depth of understanding on a narrow topic and pick a conference for more broad but shallower knowledge of many areas.&#8221; I think the training course advice is still accurate, but I was wrong about conferences.</p>
+    <content type="html"><![CDATA[<p> Near Infinity has the <a href="http://www.nearinfinity.com/home/currentopenings.html" title="Awesome Training Program">most generous training program</a> I&rsquo;ve heard of among our competitors, and certainly rivals the best in the industry. Colleagues occasionally ask me for opinions about a conference or training course they&rsquo;re considering. My stock answer for such inquiries has always been to &ldquo;attend a good training class for depth of understanding on a narrow topic and pick a conference for more broad but shallower knowledge of many areas.&rdquo; I think the training course advice is still accurate, but I was wrong about conferences.</p>
 
-<p>The best conferences aren&#8217;t about learning at all. They&#8217;re about inspiration. I finally realized this at RailsConf last week, despite having attended dozens of conferences during the past ten years. Surprisingly, I found most of the topics rather boring, most of the presenters unpolished, and most of the presentations poorly constructed and minimally rehearsed. The things I enjoyed most were the keynotes from Dave Thomas and David Heinemeier Hansson, a performance-related presentation by Aaron Patterson, an entrepreneurial story by Tom Preston-Werner, and a reflection talk by Keavy McMinn on her journey from artist to programmer. Why did I enjoy them? Because they caused me to look at things differently, forced me to think critically about my choices, and motivated me to act. Only one of these was technical in nature by the way, just one!</p>
+<p>The best conferences aren&rsquo;t about learning at all. They&rsquo;re about inspiration. I finally realized this at RailsConf last week, despite having attended dozens of conferences during the past ten years. Surprisingly, I found most of the topics rather boring, most of the presenters unpolished, and most of the presentations poorly constructed and minimally rehearsed. The things I enjoyed most were the keynotes from Dave Thomas and David Heinemeier Hansson, a performance-related presentation by Aaron Patterson, an entrepreneurial story by Tom Preston-Werner, and a reflection talk by Keavy McMinn on her journey from artist to programmer. Why did I enjoy them? Because they caused me to look at things differently, forced me to think critically about my choices, and motivated me to act. Only one of these was technical in nature by the way, just one!</p>
 
-<p>A good conference should inspire you to do something. No talk is long enough to teach you anything immediately useful. The best you can hope for is exposure to lots of stuff you might want to look into after the conference. Of course you could get the same level of exposure by reading the conference agenda, Googling each topic, and reading through some documentation on each homepage. What you can&#8217;t get is the inspiration from a great speaker, motivational story, or engaged community.</p>
+<p>A good conference should inspire you to do something. No talk is long enough to teach you anything immediately useful. The best you can hope for is exposure to lots of stuff you might want to look into after the conference. Of course you could get the same level of exposure by reading the conference agenda, Googling each topic, and reading through some documentation on each homepage. What you can&rsquo;t get is the inspiration from a great speaker, motivational story, or engaged community.</p>
 
-<p>So the next time you contemplate attending a conference, do your best to judge the inspiration potential. After all, if you&#8217;re not going to do anything different after the conference, why bother going?</p>
+<p>So the next time you contemplate attending a conference, do your best to judge the inspiration potential. After all, if you&rsquo;re not going to do anything different after the conference, why bother going?</p>
 ]]></content>
   </entry>
   
@@ -899,15 +899,15 @@ will do wonders for your sense of accomplishment.</p>
     <link href="http://kunkle.org/blog/2010/11/01/is-system-refactoring-possible/"/>
     <updated>2010-11-01T11:16:50-04:00</updated>
     <id>http://kunkle.org/blog/2010/11/01/is-system-refactoring-possible</id>
-    <content type="html"><![CDATA[<p>People have talked about it for years. Even if you&#8217;re new, you&#8217;ve certainly been on the receiving end of more war stories than you care to remember; it&#8217;s that old legacy system. You know, the one that started out small but now has all kinds functionality tacked on here or growing out of there. Corporate architects most certainly call this growth subsystems but you know better. It&#8217;s really just the junk that&#8217;s built up over time because the <em>system</em> was never refactored.</p>
+    <content type="html"><![CDATA[<p>People have talked about it for years. Even if you&rsquo;re new, you&rsquo;ve certainly been on the receiving end of more war stories than you care to remember; it&rsquo;s that old legacy system. You know, the one that started out small but now has all kinds functionality tacked on here or growing out of there. Corporate architects most certainly call this growth subsystems but you know better. It&rsquo;s really just the junk that&rsquo;s built up over time because the <em>system</em> was never refactored.</p>
 
-<p>It&#8217;s widely accepted that refactoring is a best practice for keeping code simple, DRY, and maintainable. What doesn&#8217;t seem so widely accepted is the habit of applying the same practices at a broader system level.</p>
+<p>It&rsquo;s widely accepted that refactoring is a best practice for keeping code simple, DRY, and maintainable. What doesn&rsquo;t seem so widely accepted is the habit of applying the same practices at a broader system level.</p>
 
-<p>Why don&#8217;t we refactor systems? I started thinking about this very question during a recent all-day system design presentation, one of several in a series mind you. As I ingested slide after slide of barely visible text accompanied by Visio diagrams packed with boxes and arrows pointing in every direction, I wondered how things became so complicated.</p>
+<p>Why don&rsquo;t we refactor systems? I started thinking about this very question during a recent all-day system design presentation, one of several in a series mind you. As I ingested slide after slide of barely visible text accompanied by Visio diagrams packed with boxes and arrows pointing in every direction, I wondered how things became so complicated.</p>
 
 <p>In my experience, there seems to be some kind of stigma around reworking (aka refactoring) interconnected systems. New features are always bolted on to our existing systems, but nothing is ever redesigned, reorganized, or re-anything&#8217;ed. Over time, we end up with bolts on top of bolts until the thought of reworking any part of the system is completely overwhelming.</p>
 
-<p>So why is the concept of refactoring an interconnected system so foreign when it&#8217;s been used so successfully for more discrete pieces of software? Is it possible?</p>
+<p>So why is the concept of refactoring an interconnected system so foreign when it&rsquo;s been used so successfully for more discrete pieces of software? Is it possible?</p>
 ]]></content>
   </entry>
   
@@ -916,13 +916,13 @@ will do wonders for your sense of accomplishment.</p>
     <link href="http://kunkle.org/blog/2009/11/18/protect-your-rails-model-objec/"/>
     <updated>2009-11-18T14:00:00-05:00</updated>
     <id>http://kunkle.org/blog/2009/11/18/protect-your-rails-model-objec</id>
-    <content type="html"><![CDATA[<p>Near Infinity recently announced the release of <a href="http://github.com/nearinfinity/grant">Grant</a>, a Ruby on Rails plugin for securing and auditing access to your Rails model objects, and I&#8217;m here to tell you a little bit about it. There are two primary pieces of Grant, model security and model audit. I&#8217;ll be focusing on model security for this post and will address model audit in a later entry.</p>
+    <content type="html"><![CDATA[<p>Near Infinity recently announced the release of <a href="http://github.com/nearinfinity/grant">Grant</a>, a Ruby on Rails plugin for securing and auditing access to your Rails model objects, and I&rsquo;m here to tell you a little bit about it. There are two primary pieces of Grant, model security and model audit. I&rsquo;ll be focusing on model security for this post and will address model audit in a later entry.</p>
 
-<p>Grant&#8217;s model security is deliberately designed to force the developer to make conscious security decisions about what CRUD operations a user should be allowed to perform on your model objects. It doesn&#8217;t care how you choose to authenticate and authorize your users to perform a CRUD operation, it only cares that you actually do it.</p>
+<p>Grant&rsquo;s model security is deliberately designed to force the developer to make conscious security decisions about what CRUD operations a user should be allowed to perform on your model objects. It doesn&rsquo;t care how you choose to authenticate and authorize your users to perform a CRUD operation, it only cares that you actually do it.</p>
 
-<p>Rather than specify which operations are restricted, Grant restricts all CRUD operations unless they&#8217;re explicitly granted to the user. It also restricts adding or removing items from <em>has_many</em> and <em>has_and_belongs_to_many</em> associations. Only allowing operations explicitly granted forces you to make conscious security decisions. While it obviously can&#8217;t ensure you make the correct decisions, it should help ease the latent fear that you&#8217;ve inadvertently forgotten to secure something.</p>
+<p>Rather than specify which operations are restricted, Grant restricts all CRUD operations unless they&rsquo;re explicitly granted to the user. It also restricts adding or removing items from <em>has_many</em> and <em>has_and_belongs_to_many</em> associations. Only allowing operations explicitly granted forces you to make conscious security decisions. While it obviously can&rsquo;t ensure you make the correct decisions, it should help ease the latent fear that you&rsquo;ve inadvertently forgotten to secure something.</p>
 
-<p>Enough talk, let me show you an example of how you might use it. To enable model security you simply include the Grant::ModelSecurity module in your model class. In this example you see three grant statements. The first grants find (aka read) permission to everyone. The second example grants create, update, and destroy permission when the passed block evaluates to true, which in this case happens when the model is editable by the current user. You can put any code you want in that block as long as it returns a boolean value. Similarly, the third grant statement permits additions and removals from the tags association when it&#8217;s block evaluates to true. A Grant::ModelSecurityError is raised if any grant block evaluates to false or nil.</p>
+<p>Enough talk, let me show you an example of how you might use it. To enable model security you simply include the Grant::ModelSecurity module in your model class. In this example you see three grant statements. The first grants find (aka read) permission to everyone. The second example grants create, update, and destroy permission when the passed block evaluates to true, which in this case happens when the model is editable by the current user. You can put any code you want in that block as long as it returns a boolean value. Similarly, the third grant statement permits additions and removals from the tags association when it&rsquo;s block evaluates to true. A Grant::ModelSecurityError is raised if any grant block evaluates to false or nil.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -959,9 +959,9 @@ will do wonders for your sense of accomplishment.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>There&#8217;s a lot more to the grant statement than shown in the above example. For instance, you can have multiple grant statements for the same action. Ultimate permission to perform the action will not be granted unless all grant blocks evaluate to true.</p>
+<p>There&rsquo;s a lot more to the grant statement than shown in the above example. For instance, you can have multiple grant statements for the same action. Ultimate permission to perform the action will not be granted unless all grant blocks evaluate to true.</p>
 
-<p>As you can see, Grant is pretty simple to use, but it&#8217;s not going to do the dirty work for you. It&#8217;s up to you to make the proper security decisions. Grant&#8217;s just there to make sure you don&#8217;t forget.</p>
+<p>As you can see, Grant is pretty simple to use, but it&rsquo;s not going to do the dirty work for you. It&rsquo;s up to you to make the proper security decisions. Grant&rsquo;s just there to make sure you don&rsquo;t forget.</p>
 ]]></content>
   </entry>
   
@@ -1003,7 +1003,7 @@ will do wonders for your sense of accomplishment.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Did you see that <code>?.</code> operator on the last line of the code sample? That&#8217;s the safe navigation operator, and it&#8217;s the equivalent of writing the following if statement (although it&#8217;s much more readable).</p>
+<p>Did you see that <code>?.</code> operator on the last line of the code sample? That&rsquo;s the safe navigation operator, and it&rsquo;s the equivalent of writing the following if statement (although it&rsquo;s much more readable).</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1014,7 +1014,7 @@ will do wonders for your sense of accomplishment.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The safe navigation operator essentially checks to see if the object you&#8217;re about to invoke a method on is <code>null</code>. If it is <code>null</code>, it simply skips the method invocation and returns <code>null</code>. If it isn&#8217;t <code>null</code>, it proceeds as usual. It works for method chaining too, so if you&#8217;re worried about <code>book</code> being <code>null</code>, you could write</p>
+<p>The safe navigation operator essentially checks to see if the object you&rsquo;re about to invoke a method on is <code>null</code>. If it is <code>null</code>, it simply skips the method invocation and returns <code>null</code>. If it isn&rsquo;t <code>null</code>, it proceeds as usual. It works for method chaining too, so if you&rsquo;re worried about <code>book</code> being <code>null</code>, you could write</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">println</span> <span class="n">book</span><span class="o">?.</span><span class="na">author</span><span class="o">?.</span><span class="na">lastName</span>
@@ -1023,7 +1023,7 @@ will do wonders for your sense of accomplishment.</p>
 
 <p>This way, if either <code>book</code> or <code>author</code> are <code>null</code>, you simply print out <code>null</code> instead of causing a NullPointerException.</p>
 
-<p>Since learning about the safe navigation operator, I&#8217;ve used it successfully in dozens of classes without any problem. Until last week. Consider the following line of code .</p>
+<p>Since learning about the safe navigation operator, I&rsquo;ve used it successfully in dozens of classes without any problem. Until last week. Consider the following line of code .</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">println</span> <span class="n">book</span><span class="o">?.</span><span class="na">author</span><span class="o">?.</span><span class="na">firstName</span><span class="o">?.</span><span class="na">trim</span><span class="o">().</span><span class="na">concat</span><span class="o">(</span><span class="s2">&quot; is great.&quot;</span><span class="o">)</span>
@@ -1032,7 +1032,7 @@ will do wonders for your sense of accomplishment.</p>
 
 <p>Thanks to the safe navigation operator we can write this concatenation of <code>firstName</code> and a sentence fragment without worrying about <code>NullPointerException</code>(s) and ugly if blocks. Or so I thought.</p>
 
-<p>Looking at this line of code, I thought for sure I was safe from any sneaky <code>NullPointerException</code>. If <code>book</code>, <code>author</code> or <code>firstName</code> are <code>null</code> I&#8217;ll simply end up printing <code>null</code> and not have to worry about the <code>concat()</code> method. After all, if the <code>trim()</code> method succeeds, there&#8217;s no sense in guarding it&#8217;s result for <code>null</code>. And that&#8217;s where I was wrong.</p>
+<p>Looking at this line of code, I thought for sure I was safe from any sneaky <code>NullPointerException</code>. If <code>book</code>, <code>author</code> or <code>firstName</code> are <code>null</code> I&rsquo;ll simply end up printing <code>null</code> and not have to worry about the <code>concat()</code> method. After all, if the <code>trim()</code> method succeeds, there&rsquo;s no sense in guarding it&rsquo;s result for <code>null</code>. And that&rsquo;s where I was wrong.</p>
 
 <p>I naively assumed the method chain would stop once the safe navigation operator encountered a <code>null</code> when in fact it does not. While the <code>trim()</code> method is safe from being called on a <code>null</code> <code>firstName</code> object, it will return <code>null</code>, upon which the <code>concat()</code> method is called. Oops!</p>
 ]]></content>

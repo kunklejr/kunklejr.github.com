@@ -9,7 +9,7 @@
   <meta name="author" content="Jeff Kunkle">
 
   
-  <meta name="description" content="Ever since hearing about Firesheep I&#8217;ve wanted a Safari extension similar to the HTTPS Everywhere extension for Firefox. Frankly, I was puzzled &hellip;">
+  <meta name="description" content="Ever since hearing about Firesheep I&rsquo;ve wanted a Safari extension similar to the HTTPS Everywhere extension for Firefox. Frankly, I was puzzled &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht/">
+  <link rel="canonical" href="http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Jeff Kunkle's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -104,7 +105,7 @@
   </header>
 
 
-<div class="entry-content"><p>Ever since hearing about <a href="http://codebutler.com/firesheep">Firesheep</a> I&#8217;ve wanted a Safari extension similar to the <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a> extension for Firefox. Frankly, I was puzzled that one didn&#8217;t already exist, so I set out to write it. The result is <a href="http://www.nearinfinity.com/home/opensource/ssl-everywhere.html">SSL Everywhere</a>. The journey is this blog post.</p>
+<div class="entry-content"><p>Ever since hearing about <a href="http://codebutler.com/firesheep">Firesheep</a> I&rsquo;ve wanted a Safari extension similar to the <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a> extension for Firefox. Frankly, I was puzzled that one didn&rsquo;t already exist, so I set out to write it. The result is <a href="http://www.nearinfinity.com/home/opensource/ssl-everywhere.html">SSL Everywhere</a>. The journey is this blog post.</p>
 
 <p>I started the project as an effort to protect myself and others from Firesheep when using Safari on an open public wireless network, much like those found in coffee shops, hotels, and airports everywhere. Firesheep works by <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Session_hijacking">hijacking your session</a>, which is basically a way of stealing your active login without needing your username or password.</p>
 
@@ -122,25 +123,25 @@
 </ul>
 
 
-<p>It wasn&#8217;t until I started to tackle each of the list items that I realized just how limited Safari&#8217;s extension API is, and ultimately that <strong>one could never build a foolproof extension to protect Safari users from session hijacking attacks</strong>.</p>
+<p>It wasn&rsquo;t until I started to tackle each of the list items that I realized just how limited Safari&rsquo;s extension API is, and ultimately that <strong>one could never build a foolproof extension to protect Safari users from session hijacking attacks</strong>.</p>
 
 <h1>Lessons Learned</h1>
 
-<p>If you&#8217;ve spent any significant time writing Safari extensions, you may already be aware of the many restrictions and challenges I wrestled with for hours. Much of what I learned was trial and error, despite <a href="http://developer.apple.com/library/safari/#documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html">well written documentation from Apple</a>. While the documentation does a fair job of describing many of the things you can do with an extension, it doesn&#8217;t provide as much detail on what you <em>can&#8217;t</em> do. That&#8217;s what you&#8217;ll find below.</p>
+<p>If you&rsquo;ve spent any significant time writing Safari extensions, you may already be aware of the many restrictions and challenges I wrestled with for hours. Much of what I learned was trial and error, despite <a href="http://developer.apple.com/library/safari/#documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html">well written documentation from Apple</a>. While the documentation does a fair job of describing many of the things you can do with an extension, it doesn&rsquo;t provide as much detail on what you <em>can&rsquo;t</em> do. That&rsquo;s what you&rsquo;ll find below.</p>
 
 <h2>No Access to Raw Cookies</h2>
 
-<p>The key to avoiding a session hijacking attempt is making sure the attacker can&#8217;t access the session cookie, or cookies, your browser sends on each request. This can obviously be done by making sure all requests take place over an SSL connection. Unfortunately, you can&#8217;t guarantee this won&#8217;t happen since Safari extensions have no opportunity to intercept webpage requests before they occur. A user could easily type http://twitter.com into their address bar and SSL Everywhere couldn&#8217;t stop the request.</p>
+<p>The key to avoiding a session hijacking attempt is making sure the attacker can&rsquo;t access the session cookie, or cookies, your browser sends on each request. This can obviously be done by making sure all requests take place over an SSL connection. Unfortunately, you can&rsquo;t guarantee this won&rsquo;t happen since Safari extensions have no opportunity to intercept webpage requests before they occur. A user could easily type <a href="http://twitter.com">http://twitter.com</a> into their address bar and SSL Everywhere couldn&rsquo;t stop the request.</p>
 
-<p>The other option I pursued was having SSL Everywhere attempt to mark session cookies as secure since the browser will not send cookies marked as secure over a non-SSL connection. However, a Safari extension has no additional ability to manipulate cookies than normal JavaScript running on a page, meaning there is no way to read a cookie&#8217;s path or expiration date for example. So, there&#8217;s no way for the SSL Everywhere extension to simply mark a cookie as secure without having to guess at, or omit, other cookie information which may be important to the operation of the website.</p>
+<p>The other option I pursued was having SSL Everywhere attempt to mark session cookies as secure since the browser will not send cookies marked as secure over a non-SSL connection. However, a Safari extension has no additional ability to manipulate cookies than normal JavaScript running on a page, meaning there is no way to read a cookie&rsquo;s path or expiration date for example. So, there&rsquo;s no way for the SSL Everywhere extension to simply mark a cookie as secure without having to guess at, or omit, other cookie information which may be important to the operation of the website.</p>
 
 <h2>No beforeload for favicons, Ajax Calls, or Stylesheet References</h2>
 
 <p>Apple was responsible for adding the beforeload event to Webkit. This gives scripts (and extensions) the ability to decide whether an external resource should be loaded or not. As stated in the Safari Extensions Development Guide,</p>
 
-<blockquote><p>Safari 5.0 and later (and other Webkit-based browsers) generates a &#8220;beforeload&#8221; event before loading each sub-resource belonging to a webpage. The &#8220;beforeload&#8221; event is generated before loading every script, iframe, image, or style sheet specified in the webpage, for example.</p></blockquote>
+<blockquote><p>Safari 5.0 and later (and other Webkit-based browsers) generates a &ldquo;beforeload&rdquo; event before loading each sub-resource belonging to a webpage. The &ldquo;beforeload&rdquo; event is generated before loading every script, iframe, image, or style sheet specified in the webpage, for example.</p></blockquote>
 
-<p>I was thrilled after reading those two sentences because it was exactly what I needed. That is, until I discovered there&#8217;s no beforeload event fired when the browser requests a website&#8217;s favicon, makes an Ajax request, or loads an image reference defined in a stylesheet. This leaves a loophole where I can&#8217;t stop a non-secure favicon reference, Ajax call, or CSS image reference from exposing the session cookies I can&#8217;t properly mark as secure.</p>
+<p>I was thrilled after reading those two sentences because it was exactly what I needed. That is, until I discovered there&rsquo;s no beforeload event fired when the browser requests a website&rsquo;s favicon, makes an Ajax request, or loads an image reference defined in a stylesheet. This leaves a loophole where I can&rsquo;t stop a non-secure favicon reference, Ajax call, or CSS image reference from exposing the session cookies I can&rsquo;t properly mark as secure.</p>
 
 <h2>src Attribute Can Not be Changed in beforeload Event Handlers</h2>
 
@@ -148,8 +149,8 @@
 
 <ol>
 <li>inspect the source URL being requested</li>
-<li>rewrite the source URL to a secure https: version if necessary</li>
-<li>replace the resource&#8217;s insecure reference with the secure https: URL</li>
+<li>rewrite the source URL to a secure <a href="https:">https:</a> version if necessary</li>
+<li>replace the resource&rsquo;s insecure reference with the secure <a href="https:">https:</a> URL</li>
 <li>allow the loading of the resource to proceed with the new, secure URL</li>
 </ol>
 
@@ -158,29 +159,29 @@
 
 <h2>beforeload != before request</h2>
 
-<p>It turns out that all the effort described above to leverage the beforeload event was futile. Preventing a resource from loading, as described in Apple&#8217;s example of <a href="http://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/MessagesandProxies/MessagesandProxies.html#//apple_ref/doc/uid/TP40009977-CH14-SW9">blocking unwanted content</a>, stops it from being inserted into the DOM, but does not prevent it from being requested by the browser anyway.</p>
+<p>It turns out that all the effort described above to leverage the beforeload event was futile. Preventing a resource from loading, as described in Apple&rsquo;s example of <a href="http://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/MessagesandProxies/MessagesandProxies.html#//apple_ref/doc/uid/TP40009977-CH14-SW9">blocking unwanted content</a>, stops it from being inserted into the DOM, but does not prevent it from being requested by the browser anyway.</p>
 
-<p>Apple&#8217;s example documentation states</p>
+<p>Apple&rsquo;s example documentation states</p>
 
-<blockquote><p>If your script responds to a &#8220;beforeload&#8221; event by calling event.preventDefault(), the pending sub-resource is not loaded. This is a useful technique for blocking ads&#8230;</p></blockquote>
+<blockquote><p>If your script responds to a &ldquo;beforeload&rdquo; event by calling event.preventDefault(), the pending sub-resource is not loaded. This is a useful technique for blocking ads&hellip;</p></blockquote>
 
-<p>Should I have really expected that &#8220;the pending sub-resource is not loaded&#8221; doesn&#8217;t imply that it&#8217;s not requested? Perhaps I wasn&#8217;t sharp enough to catch that nuance, but once again the cookies are exposed.</p>
+<p>Should I have really expected that &ldquo;the pending sub-resource is not loaded&rdquo; doesn&rsquo;t imply that it&rsquo;s not requested? Perhaps I wasn&rsquo;t sharp enough to catch that nuance, but once again the cookies are exposed.</p>
 
 <h2>Host Page Prototypes Can Not be Changed</h2>
 
-<p>When I discovered the beforeload event doesn&#8217;t fire on Ajax requests, I decided to try to override the XMLHttpRequest <code>open</code> method and rewrite any insecure URLs to a secure version before yielding to the original <code>open</code> implementation. What I found was that you can&#8217;t modify the prototypes of the page your start or end scripts are being injected into.</p>
+<p>When I discovered the beforeload event doesn&rsquo;t fire on Ajax requests, I decided to try to override the XMLHttpRequest <code>open</code> method and rewrite any insecure URLs to a secure version before yielding to the original <code>open</code> implementation. What I found was that you can&rsquo;t modify the prototypes of the page your start or end scripts are being injected into.</p>
 
-<p>I suspect this has something to do with start and end scripts being secluded in their own separate, and randomly named, namespace. Changing around object prototypes never resulted in any errors, it just didn&#8217;t change the prototypes of the host page and therefore couldn&#8217;t change the XMLHttpRequest object. Again, another point of exposure for the precious cookies.</p>
+<p>I suspect this has something to do with start and end scripts being secluded in their own separate, and randomly named, namespace. Changing around object prototypes never resulted in any errors, it just didn&rsquo;t change the prototypes of the host page and therefore couldn&rsquo;t change the XMLHttpRequest object. Again, another point of exposure for the precious cookies.</p>
 
 <h1>Status of SSL Everywhere</h1>
 
-<p>If you&#8217;ve read this far it should be obvious that SSL Everywhere cannot guarantee protection against session hijacking attacks, including those from Firesheep. However, it does enhance security by automatically redirecting you to secure versions of many websites and rewriting insecure links to their SSL-encrypted equivalents. If you must use Safari to access popular websites when connected to an open WiFi network, you&#8217;re probably better off doing it with SSL Everywhere.</p>
+<p>If you&rsquo;ve read this far it should be obvious that SSL Everywhere cannot guarantee protection against session hijacking attacks, including those from Firesheep. However, it does enhance security by automatically redirecting you to secure versions of many websites and rewriting insecure links to their SSL-encrypted equivalents. If you must use Safari to access popular websites when connected to an open WiFi network, you&rsquo;re probably better off doing it with SSL Everywhere.</p>
 
-<p>We don&#8217;t offer a pre-built version of the extension for easy installation into Safari because we don&#8217;t want people to casually install it and forget that it&#8217;s not completely secure for all sites. If people find it valuable nonetheless, then we may consider creating the extension bundle in the future.</p>
+<p>We don&rsquo;t offer a pre-built version of the extension for easy installation into Safari because we don&rsquo;t want people to casually install it and forget that it&rsquo;s not completely secure for all sites. If people find it valuable nonetheless, then we may consider creating the extension bundle in the future.</p>
 
 <h1>Try It!</h1>
 
-<p>If you&#8217;d like to try SSL Everywhere you can find the <a href="https://github.com/nearinfinity/ssl-everywhere.safariextension">source code on Github</a>. It&#8217;s open source software licensed under the GPL version 2 license, primarily because it borrows code from <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a>. If you can come up with solutions to any of the problems I encountered, please let me know!</p>
+<p>If you&rsquo;d like to try SSL Everywhere you can find the <a href="https://github.com/nearinfinity/ssl-everywhere.safariextension">source code on Github</a>. It&rsquo;s open source software licensed under the GPL version 2 license, primarily because it borrows code from <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a>. If you can come up with solutions to any of the problems I encountered, please let me know!</p>
 </div>
 
 
@@ -211,7 +212,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht/" data-via="kunklejr" data-counturl="http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht/" data-via="kunklejr" data-counturl="http://kunkle.org/blog/2010/12/14/lessons-learned-building-an-ht/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -246,7 +247,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
+        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting With CoverShot</a>
       </li>
     
       <li class="post">
@@ -273,7 +274,7 @@
   <a href="https://github.com/kunklejr">@kunklejr</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -291,23 +292,6 @@
     });
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("kunklejr", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/kunklejr" class="twitter-follow-button" data-show-count="false">Follow @kunklejr</a>
-  
 </section>
 
 
@@ -343,7 +327,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -365,7 +349,7 @@
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

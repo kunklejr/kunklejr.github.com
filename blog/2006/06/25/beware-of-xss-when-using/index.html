@@ -18,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kunkle.org/blog/2006/06/25/beware-of-xss-when-using/">
+  <link rel="canonical" href="http://kunkle.org/blog/2006/06/25/beware-of-xss-when-using">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Jeff Kunkle's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -150,11 +151,11 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>As you can see, the syntax in the second example is much cleaner. But, &#8220;with great power comes great responsibility.&#8221; The chink in the armor that every tutorial I&#8217;ve read (including <a href="http://java.sun.com/javaee/5/docs/tutorial/doc/index.html">Sun&#8217;s Java EE 5 Tutorial</a> fails to mention is that the expression syntax does not escape HTML characters. Therefore, <em>any web application using JSP Expressions to output unsanitized, user-entered data will be vulnerable to Cross Site Scripting (XSS) attacks.</em></p>
+<p>As you can see, the syntax in the second example is much cleaner. But, &ldquo;with great power comes great responsibility.&rdquo; The chink in the armor that every tutorial I&rsquo;ve read (including <a href="http://java.sun.com/javaee/5/docs/tutorial/doc/index.html">Sun&rsquo;s Java EE 5 Tutorial</a> fails to mention is that the expression syntax does not escape HTML characters. Therefore, <em>any web application using JSP Expressions to output unsanitized, user-entered data will be vulnerable to Cross Site Scripting (XSS) attacks.</em></p>
 
-<p>Unfortunately, the cure for this XSS vulnerability leads us right back to our first example. As section 2.2.2 of the <a href="http://jcp.org/aboutJava/communityprocess/final/jsr152">JSP 2.0 Specification</a> reads, &#8220;In cases where escaping is desired (for example, to help prevent cross-site scripting attacks), the JSTL core tag c:out can be used.&#8221;</p>
+<p>Unfortunately, the cure for this XSS vulnerability leads us right back to our first example. As section 2.2.2 of the <a href="http://jcp.org/aboutJava/communityprocess/final/jsr152">JSP 2.0 Specification</a> reads, &ldquo;In cases where escaping is desired (for example, to help prevent cross-site scripting attacks), the JSTL core tag c:out can be used.&rdquo;</p>
 
-<p>My advice is to use JSP Expressions only as tag library attribute values and stick to using JSTL&#8217;s c:out tag for writing text to a page. Deciding which instances of template text expression usage are safe and which are not is simply too error prone and the consequences of a mistake too dangerous.</p>
+<p>My advice is to use JSP Expressions only as tag library attribute values and stick to using JSTL&rsquo;s c:out tag for writing text to a page. Deciding which instances of template text expression usage are safe and which are not is simply too error prone and the consequences of a mistake too dangerous.</p>
 </div>
 
 
@@ -185,7 +186,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/blog/2006/06/25/beware-of-xss-when-using/" data-via="kunklejr" data-counturl="http://kunkle.org/blog/2006/06/25/beware-of-xss-when-using/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/blog/2006/06/25/beware-of-xss-when-using/" data-via="kunklejr" data-counturl="http://kunkle.org/blog/2006/06/25/beware-of-xss-when-using/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -218,7 +219,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
+        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting With CoverShot</a>
       </li>
     
       <li class="post">
@@ -245,7 +246,7 @@
   <a href="https://github.com/kunklejr">@kunklejr</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -263,23 +264,6 @@
     });
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("kunklejr", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/kunklejr" class="twitter-follow-button" data-show-count="false">Follow @kunklejr</a>
-  
 </section>
 
 
@@ -315,7 +299,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -337,7 +321,7 @@
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

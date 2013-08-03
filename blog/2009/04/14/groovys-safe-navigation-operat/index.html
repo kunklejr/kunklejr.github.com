@@ -18,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kunkle.org/blog/2009/04/14/groovys-safe-navigation-operat/">
+  <link rel="canonical" href="http://kunkle.org/blog/2009/04/14/groovys-safe-navigation-operat">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Jeff Kunkle's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -137,7 +138,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Did you see that <code>?.</code> operator on the last line of the code sample? That&#8217;s the safe navigation operator, and it&#8217;s the equivalent of writing the following if statement (although it&#8217;s much more readable).</p>
+<p>Did you see that <code>?.</code> operator on the last line of the code sample? That&rsquo;s the safe navigation operator, and it&rsquo;s the equivalent of writing the following if statement (although it&rsquo;s much more readable).</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -148,7 +149,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The safe navigation operator essentially checks to see if the object you&#8217;re about to invoke a method on is <code>null</code>. If it is <code>null</code>, it simply skips the method invocation and returns <code>null</code>. If it isn&#8217;t <code>null</code>, it proceeds as usual. It works for method chaining too, so if you&#8217;re worried about <code>book</code> being <code>null</code>, you could write</p>
+<p>The safe navigation operator essentially checks to see if the object you&rsquo;re about to invoke a method on is <code>null</code>. If it is <code>null</code>, it simply skips the method invocation and returns <code>null</code>. If it isn&rsquo;t <code>null</code>, it proceeds as usual. It works for method chaining too, so if you&rsquo;re worried about <code>book</code> being <code>null</code>, you could write</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">println</span> <span class="n">book</span><span class="o">?.</span><span class="na">author</span><span class="o">?.</span><span class="na">lastName</span>
@@ -157,7 +158,7 @@
 
 <p>This way, if either <code>book</code> or <code>author</code> are <code>null</code>, you simply print out <code>null</code> instead of causing a NullPointerException.</p>
 
-<p>Since learning about the safe navigation operator, I&#8217;ve used it successfully in dozens of classes without any problem. Until last week. Consider the following line of code .</p>
+<p>Since learning about the safe navigation operator, I&rsquo;ve used it successfully in dozens of classes without any problem. Until last week. Consider the following line of code .</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">println</span> <span class="n">book</span><span class="o">?.</span><span class="na">author</span><span class="o">?.</span><span class="na">firstName</span><span class="o">?.</span><span class="na">trim</span><span class="o">().</span><span class="na">concat</span><span class="o">(</span><span class="s2">&quot; is great.&quot;</span><span class="o">)</span>
@@ -166,7 +167,7 @@
 
 <p>Thanks to the safe navigation operator we can write this concatenation of <code>firstName</code> and a sentence fragment without worrying about <code>NullPointerException</code>(s) and ugly if blocks. Or so I thought.</p>
 
-<p>Looking at this line of code, I thought for sure I was safe from any sneaky <code>NullPointerException</code>. If <code>book</code>, <code>author</code> or <code>firstName</code> are <code>null</code> I&#8217;ll simply end up printing <code>null</code> and not have to worry about the <code>concat()</code> method. After all, if the <code>trim()</code> method succeeds, there&#8217;s no sense in guarding it&#8217;s result for <code>null</code>. And that&#8217;s where I was wrong.</p>
+<p>Looking at this line of code, I thought for sure I was safe from any sneaky <code>NullPointerException</code>. If <code>book</code>, <code>author</code> or <code>firstName</code> are <code>null</code> I&rsquo;ll simply end up printing <code>null</code> and not have to worry about the <code>concat()</code> method. After all, if the <code>trim()</code> method succeeds, there&rsquo;s no sense in guarding it&rsquo;s result for <code>null</code>. And that&rsquo;s where I was wrong.</p>
 
 <p>I naively assumed the method chain would stop once the safe navigation operator encountered a <code>null</code> when in fact it does not. While the <code>trim()</code> method is safe from being called on a <code>null</code> <code>firstName</code> object, it will return <code>null</code>, upon which the <code>concat()</code> method is called. Oops!</p>
 </div>
@@ -199,7 +200,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/blog/2009/04/14/groovys-safe-navigation-operat/" data-via="kunklejr" data-counturl="http://kunkle.org/blog/2009/04/14/groovys-safe-navigation-operat/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kunkle.org/blog/2009/04/14/groovys-safe-navigation-operat/" data-via="kunklejr" data-counturl="http://kunkle.org/blog/2009/04/14/groovys-safe-navigation-operat/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -234,7 +235,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting with CoverShot</a>
+        <a href="/blog/2012/08/28/nodejs-test-coverage-reporting-with-covershot/">NodeJS Test Coverage Reporting With CoverShot</a>
       </li>
     
       <li class="post">
@@ -261,7 +262,7 @@
   <a href="https://github.com/kunklejr">@kunklejr</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -279,23 +280,6 @@
     });
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("kunklejr", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/kunklejr" class="twitter-follow-button" data-show-count="false">Follow @kunklejr</a>
-  
 </section>
 
 
@@ -331,7 +315,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -353,7 +337,7 @@
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

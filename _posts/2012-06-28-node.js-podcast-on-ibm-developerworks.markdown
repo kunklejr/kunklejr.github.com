@@ -1,0 +1,7 @@
+---
+layout: post
+title: Node.js Podcast on IBM developerWorks
+comments: true
+tags: nodejs
+---
+Almost two months ago I did a 28-minute [podcast](http://www.ibm.com/developerworks/podcast/glover-kunkle-042712/glover-kunkle-042712.mp3) with Andy Glover for IBM developerWorks explaining the basics of Node, dispelling some misconceptions, and describing how it views the world a bit differently. I apologize for not posting about it earlier. You can find a brief description of the podcast and some helpful related links [here](http://www.ibm.com/developerworks/java/library/j-gloverpodcast4/index.html#kunkle).

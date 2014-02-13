@@ -1,0 +1,42 @@
+---
+layout: post
+title: NotNull Hibernate Annotation Validation Problems
+date: 2006-07-11 08:59:58 -04:00
+comments: false
+tags: java
+---
+<p>
+I recently decided to try out Hibernate's annotation-based validation framework. It seems like a great solution for ensuring consistent validation of the domain model regardless of the presentation tier (web interface, web service, etc.). It very much reminds me of the declarative validation available within Rails model objects.
+</p>
+<p>
+To make a long story short, things did not go as well as I had hoped using a Hibernate Core 3.2.0 CR2 and Hibernate Annotations 3.2.0 CR1 combination. I struggled for hours trying to figure out why I was getting a "not-null property references a null or transient value" error rather than a validation error when attempting to use the NotNull validation annotation. Eventually I discovered the problem was not that the NotNull validation wasn't working properly, but that it wasn't running at all.
+</p>
+<p>
+In order for the annotation-based validation framework to execute, Hibernate Annotations provides a <code>ValidatePreInsertEventListener</code> and <code>ValidatePreUpdateEventListener</code> to fire the annotation validations prior to persisting any changes to the domain model. "Pre-insert" and "pre-update" events are fired after other events, in this case <code>SaveOrUpdateEvent</code>(s). By default, Hibernate uses the <code>DefaultSaveOrUpdateEventListener</code>, which is an extension of <code>AbstractSaveEventListener</code>. The <code>AbstractSaveEventListener</code> checks for null values corresponding to non-nullable database columns ( <code>AbstractSaveEventListener:284</code> ) before adding the insert or update events to the execution queue( <code>AbstractSaveEventListener:290</code> ) responsible for triggering pre-insert or pre-update event listeners. In case that didn't make complete sense, the bottom line is the Hibernate Core checks entities against the null constraints of the database before the annotation-based validation framework has a chance to run.
+</p>
+<p>
+Luckily, there is a workaround, although it feels like a bit of a hack. As I mentioned previously, the <code>DefaultSaveOrUpdateEventListener</code> gets a chance to run before any "pre-insert" or "pre-update" events so we can use that to our advantage. The following <code>SaveOrUpdateEventListener</code> simply extends the Hibernate Annotations-provided <code>ValidateEventListener</code> and calls the validation method on "save-update" events rather than "pre-insert" and "pre-update" events.
+</p>
+
+``` java
+public class ValidationEventListener 
+    extends ValidateEventListener 
+    implements SaveOrUpdateEventListener {
+
+  public void onSaveOrUpdate(SaveOrUpdateEvent event) throws HibernateException {
+    final SessionImplementor source = event.getSession();
+    final Object object = event.getObject();
+    if (!source.getPersistenceContext().reassociateIfUninitializedProxy(object)) {
+      // only validate the entity if it has been changed
+      final Object entity = 
+        source.getPersistenceContext().unproxyAndReassociate(object);
+      super.validate(entity, event.getSession().getEntityMode());
+    }
+  }
+
+}
+```
+
+<p>
+One extemely important thing to remember when using this workaround is that you must configure the <code>DefaultSaveOrUpdateEventListener</code> as the second "save-update" listener (following the <code>ValidationEventListener</code>) or your objects will never be persisted.
+</p> 

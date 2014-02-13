@@ -1,0 +1,13 @@
+name: Jeff Kunkle
+author: Jeff Kunkle
+markdown: redcarpet
+pygments: true
+safe: true
+lsi: false
+timezone: America/New_York
+google_analytics_ua: UA-37321329-1
+paginate: 10
+paginate_path: "blog/page:num"
+permalink: /blog/:year/:month/:day/:title
+full_url: http://kunkle.org
+exclude: [Gemfile, Gemfile.lock, README.md]

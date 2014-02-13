@@ -1,0 +1,25 @@
+---
+layout: post
+title: Application Versus Database Security
+date: 2007-11-26 07:30:00 -05:00
+comments: false
+tags: security
+---
+<p>
+The merits of placing security in the application layer versus the database is a debate I seem to find myself in regularly. As an application developer, I've historically argued for application-level security. It was something I understood well and felt like I had some control over. Over time, I've come to understand the debate from many perspectives and have adjusted my convictions accordingly.
+</p>
+<p>
+For the record, I don't believe there is any absolutely correct answer. There are valid arguments for each side of the debate. My perspective has mostly been shaped through experience developing custom software for clients. I have little experience developing commercial software and surmise that your thoughts on the subject may differ if that's your day job.
+</p>
+<p>
+In my experience, most customers view their data as the most important aspect of any system, not the application. They want to be sure their data is safe at all times. What if someone accesses the database through a different application, a third-party data broker or directly via a SQL client? How do you protect the data in those situations if all the restrictions are resident in the application? I hear these questions all the time.
+</p>
+<p>
+The rebuttal to this argument that I hear most often is that nobody will ever access the data outside of the application. This seems like an obviously shortsighted statement to me and I don't think anyone actually believes it. It's more of a synonym for saying that you'd rather not worry about security at the database layer because it's out of your control, too hard, etc. Pick your favorite excuse. I've probably used them all myself.
+</p>
+<p>
+What it all boils down to is that the database is very likely to outlive your application. In fact, it'll probably outlive your application and several subsequent ones. Why would a customer want to pay someone to rebuild the security logic each time? It's tedious, expensive, and error prone. Additionally, you're application may not be the only one accessing the database. What are the odds that two development teams implement security constraints the same exact way in each application? Not good, I promise.
+</p>
+<p>
+As I stated in the beginning, I've definitely changed my perspectives on application versus database-level security. I was certainly an application-level security bigot before, but I find it difficult to continue my unwavering ways when looking at the problem more critically. I just hope my fellow colleagues don't renounce me for siding with the DBAs on this one.
+</p> 

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: resume
 title: Jeff Kunkle's Resume
 robots: noindex
 permalink: resume/

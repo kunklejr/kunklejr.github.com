@@ -9,10 +9,6 @@ Professional Summary
 ====================
 Mr. Kunkle has spent the majority of his 15-year career consulting to government customers and helping to build a well-respected, talent-rich software consulting company. As a technologist he's spent the past twelve years helping clients build Agile-focused development teams and create big data, web, network, and mobile applications using the Hadoop ecosystem, Ruby/Rails, Java/JEE, JavaScript/Node.js, and Objective-C/iOS. As a software-consultancy co-founder he's taken on wide range of business activities to include proposal writing, interviewing, presenting, product management, marketing, sales, and support.
 
-Security Clearance
-==================
-Details available upon request
-
 Employment History
 ==================
 
@@ -235,4 +231,8 @@ Git, Vim, IntelliJ IDE, Eclipse IDE, Atlassian JIRA, Rake, Apache Ant, Maven, Su
 
 **Operating Systems**  
 Mac OSX, Linux, Solaris, Windows
+
+Security Clearance
+==================
+Details available upon request
 
